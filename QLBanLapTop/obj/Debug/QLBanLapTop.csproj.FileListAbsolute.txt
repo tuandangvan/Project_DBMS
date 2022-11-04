@@ -1,0 +1,11 @@
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\bin\Debug\QLBanLapTop.exe.config
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\bin\Debug\QLBanLapTop.exe
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\bin\Debug\QLBanLapTop.pdb
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.csproj.AssemblyReference.cache
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.Form1.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmHangHoa.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.Properties.Resources.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.csproj.GenerateResource.cache
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.csproj.CoreCompileInputs.cache
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.exe
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.pdb
