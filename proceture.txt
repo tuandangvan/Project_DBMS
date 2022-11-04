@@ -1,0 +1,71 @@
+
+//theem sanpham
+create or alter procedure proc_addNewSanPham
+	@MaSP char(10),
+	@MaHang char(10),
+	@TenSP char(30),
+	@GiaNhap real,
+	@TrongLuong real,
+	@Pin nvarchar(50),
+	@ManHinh nvarchar(50),
+	@DoPhanGiai nvarchar(50),
+	@TanSoQuet nvarchar(50),
+	@BoXuLi nvarchar(50),
+	@DoHoaAmThanh nvarchar(50),
+	@RAM nvarchar(20),
+	@LoaiRAM nvarchar(20),
+	@BoNho nvarchar(50),
+	@HinhAnh image,
+	@HeDieuHanh nvarchar(50)
+as
+begin
+	insert into dbo.SanPham
+		(
+	MaSP,	MaHang,	TenSP,	GiaNhap,	TrongLuong,	Pin,	ManHinh,	DoPhanGiai,	TanSoQuet,
+	BoXuLi,	DoHoaAmThanh,	RAM,	LoaiRAM,	BoNho,	HinhAnh,	HeDieuHanh		)
+	values
+		(
+	@MaSP,	@MaHang,	@TenSP,	@GiaNhap,	@TrongLuong,	@Pin,	@ManHinh,	@DoPhanGiai,	@TanSoQuet,
+	@BoXuLi,	@DoHoaAmThanh,	@RAM,	@LoaiRAM,	@BoNho,	@HinhAnh,	@HeDieuHanh)
+end
+go
+
+
+
+
+--chinh sua sanpham
+create or alter procedure proc_updateSanPham
+	@MaSP char(10),
+	@MaHang char(10),
+	@TenSP char(30),
+	@GiaNhap real,
+	@TrongLuong real,
+	@Pin nvarchar(50),
+	@ManHinh nvarchar(50),
+	@DoPhanGiai nvarchar(50),
+	@TanSoQuet nvarchar(50),
+	@BoXuLi nvarchar(50),
+	@DoHoaAmThanh nvarchar(50),
+	@RAM nvarchar(20),
+	@LoaiRAM nvarchar(20),
+	@BoNho nvarchar(50),
+	@HinhAnh image,
+	@HeDieuHanh nvarchar(50)
+as
+begin
+	update dbo.SanPham
+	set SanPham.MaHang=@MaHang, SanPham.GiaNhap=@GiaNhap, SanPham.TrongLuong=@TrongLuong, SanPham.Pin=@Pin, SanPham.ManHinh=@ManHinh, SanPham.DoPhanGiai=@DoPhanGiai,
+	SanPham.TanSoQuet=@TanSoQuet, SanPham.BoXuLi=@BoXuLi, SanPham.DoHoaAmThanh=@DoHoaAmThanh, SanPham.RAM=@RAM, SanPham.LoaiRAM=@LoaiRAM, SanPham.BoNho=@BoNho,SanPham.HinhAnh=@HinhAnh,SanPham.HeDieuHanh=@HeDieuHanh
+	where dbo.SanPham.MaSP=@MaSP
+end
+go
+
+--Xóa một SanPham
+create or alter procedure proc_DeleteSanPham
+@MaSP char(10)
+as
+begin
+	delete from dbo.SanPham
+	where dbo.SanPham.MaSP=@MaSP
+end
+go
