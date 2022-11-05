@@ -147,7 +147,7 @@ namespace QLBanLapTop
 
                 cbxLocRAM.DataSource = dtRAM;
                 cbxLocRAM.DisplayMember = "RAM";
-                cbxLocRAM.SelectedItem = "";
+                cbxLocRAM.
 
                 cbxRAM.DataSource = dtRAM;
                 cbxRAM.DisplayMember = "RAM";
