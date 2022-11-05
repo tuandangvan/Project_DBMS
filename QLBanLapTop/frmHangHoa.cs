@@ -20,64 +20,67 @@ namespace QLBanLapTop
         {
             InitializeComponent();
         }
-        SqlConnection conn;
+        //SqlConnection conn;
         SqlDataAdapter daSanPham, daLoaiRAM, daBoNho, daHeDieuHanh, daManHinh, daHangSX, daRAM;
         DataTable dtSanPham, dtLoaiRam, dtBoNho, dtHeDieuHanh, dtManhHinh, dtHangSX, dtRAM;
 
-
-
         int option;
-
-
-        string connectionString = "Data Source=(local)" +
-            ";Initial Catalog=QuanLyLapTop" +
-            ";Integrated Security=True";
 
         SqlParameter parameter;
         List<SqlParameter> parameters;
         private Connection db = new Connection();
 
-        private void dgvSanPham_Click(object sender, EventArgs e)
+
+        private void dgvSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Thứ tự dòng hiện hành
             int r = dgvSanPham.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel
             if (r >= 0)
             {
-                this.txtMaSP.Text =
-                dgvSanPham.Rows[r].Cells[0].Value.ToString();
-                this.cbxTenHang.SelectedValue =
-                dgvSanPham.Rows[r].Cells[1].Value.ToString();
-                this.txtTenSP.Text =
-                dgvSanPham.Rows[r].Cells[2].Value.ToString();
-                this.txtGiaNhap.Text =
-                dgvSanPham.Rows[r].Cells[3].Value.ToString();
-                this.txtTrongluong.Text =
-                dgvSanPham.Rows[r].Cells[5].Value.ToString();
-                this.txtPin.Text =
-                dgvSanPham.Rows[r].Cells[6].Value.ToString();
-                this.cbxManHinh.Text =
-                dgvSanPham.Rows[r].Cells[7].Value.ToString();
-                this.txtDoPhanGiai.Text =
-                dgvSanPham.Rows[r].Cells[8].Value.ToString();
-                this.txtTanSoQuet.Text =
-                dgvSanPham.Rows[r].Cells[9].Value.ToString();
-                this.txtBoXuLy.Text =
-                dgvSanPham.Rows[r].Cells[10].Value.ToString();
-                this.txtDHAM.Text =
-                dgvSanPham.Rows[r].Cells[11].Value.ToString();
-                this.cbxRAM.Text =
-                dgvSanPham.Rows[r].Cells[12].Value.ToString();
-                this.cbxLoaiRam.Text =
-                dgvSanPham.Rows[r].Cells[13].Value.ToString();
-                this.txtSoLuong.Text =
-                dgvSanPham.Rows[r].Cells[14].Value.ToString();
-                this.cbxBoNho.Text =
-                dgvSanPham.Rows[r].Cells[15].Value.ToString();
-                this.picHinhAnh.Image = 
-                byteArrayToImage((byte[])dgvSanPham.Rows[r].Cells[16].Value);
-                this.cbxHeDieuHanh.Text =
-                dgvSanPham.Rows[r].Cells[17].Value.ToString();
+                try
+                {
+                    this.txtMaSP.Text =
+                    dgvSanPham.Rows[r].Cells[0].Value.ToString();
+                    this.cbxTenHang.SelectedValue =
+                    dgvSanPham.Rows[r].Cells[1].Value.ToString();
+                    this.txtTenSP.Text =
+                    dgvSanPham.Rows[r].Cells[2].Value.ToString();
+                    this.txtGiaNhap.Text =
+                    dgvSanPham.Rows[r].Cells[3].Value.ToString();
+                    this.txtGiaBan.Text =
+                    dgvSanPham.Rows[r].Cells[4].Value.ToString();
+                    this.txtTrongluong.Text =
+                    dgvSanPham.Rows[r].Cells[5].Value.ToString();
+                    this.txtPin.Text =
+                    dgvSanPham.Rows[r].Cells[6].Value.ToString();
+                    this.cbxManHinh.Text =
+                    dgvSanPham.Rows[r].Cells[7].Value.ToString();
+                    this.txtDoPhanGiai.Text =
+                    dgvSanPham.Rows[r].Cells[8].Value.ToString();
+                    this.txtTanSoQuet.Text =
+                    dgvSanPham.Rows[r].Cells[9].Value.ToString();
+                    this.txtBoXuLy.Text =
+                    dgvSanPham.Rows[r].Cells[10].Value.ToString();
+                    this.txtDHAM.Text =
+                    dgvSanPham.Rows[r].Cells[11].Value.ToString();
+                    this.cbxRAM.Text =
+                    dgvSanPham.Rows[r].Cells[12].Value.ToString();
+                    this.cbxLoaiRam.Text =
+                    dgvSanPham.Rows[r].Cells[13].Value.ToString();
+                    this.txtSoLuong.Text =
+                    dgvSanPham.Rows[r].Cells[14].Value.ToString();
+                    this.cbxBoNho.Text =
+                    dgvSanPham.Rows[r].Cells[15].Value.ToString();
+                    this.picHinhAnh.Image =
+                    byteArrayToImage((byte[])dgvSanPham.Rows[r].Cells[16].Value);
+                    this.cbxHeDieuHanh.Text =
+                    dgvSanPham.Rows[r].Cells[17].Value.ToString();
+                }
+                catch
+                {
+                    //tránh chọn vào hàng cuối không có dữ liệu
+                }
 
             }
         }
@@ -92,19 +95,19 @@ namespace QLBanLapTop
         {
             try
             {
-                conn = new SqlConnection(connectionString);
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-                conn.Open();
+                //conn = new SqlConnection(connectionString);
+                if (db.conn.State == ConnectionState.Open)
+                    db.conn.Close();
+                db.conn.Open();
 
 
-                daSanPham = new SqlDataAdapter("Select * From SanPham", conn);
-                daLoaiRAM = new SqlDataAdapter("Select DISTINCT LoaiRAM  FROM SanPham", conn);
-                daBoNho = new SqlDataAdapter("Select DISTINCT BoNho FROM SanPham", conn);
-                daManHinh = new SqlDataAdapter("Select DISTINCT ManHinh FROM SanPham", conn);
-                daHeDieuHanh = new SqlDataAdapter("Select DISTINCT HeDieuHanh FROM SanPham", conn);
-                daHangSX = new SqlDataAdapter("Select DISTINCT * FROM HangSX", conn);
-                daRAM = new SqlDataAdapter("Select DISTINCT RAM FROM SanPham", conn);
+                daSanPham = new SqlDataAdapter("Select * From View_ThongTinSanPham", db.conn);
+                daLoaiRAM = new SqlDataAdapter("Select DISTINCT LoaiRAM  FROM SanPham", db.conn);
+                daBoNho = new SqlDataAdapter("Select DISTINCT BoNho FROM SanPham", db.conn);
+                daManHinh = new SqlDataAdapter("Select DISTINCT ManHinh FROM SanPham", db.conn);
+                daHeDieuHanh = new SqlDataAdapter("Select DISTINCT HeDieuHanh FROM SanPham", db.conn);
+                daHangSX = new SqlDataAdapter("Select DISTINCT * FROM HangSX", db.conn);
+                daRAM = new SqlDataAdapter("Select DISTINCT RAM FROM SanPham", db.conn);
 
                 //doi du lieu
                 dtSanPham = new DataTable();
@@ -135,14 +138,25 @@ namespace QLBanLapTop
                 cbxBoNho.DataSource = dtBoNho;
                 cbxBoNho.DisplayMember = "BoNho";
 
+                cbxLocBoNho.DataSource = dtBoNho;
+                cbxLocBoNho.DisplayMember = "BoNho";
+               
+
                 cbxLoaiRam.DataSource = dtLoaiRam;
                 cbxLoaiRam.DisplayMember = "LoaiRAM";
+
+                cbxLocRAM.DataSource = dtRAM;
+                cbxLocRAM.DisplayMember = "RAM";
+                cbxLocRAM.SelectedItem = "";
 
                 cbxRAM.DataSource = dtRAM;
                 cbxRAM.DisplayMember = "RAM";
 
                 cbxManHinh.DataSource = dtManhHinh;
                 cbxManHinh.DisplayMember = "ManHinh";
+
+                cbxLocManHinh.DataSource = dtManhHinh;
+                cbxLocManHinh.DisplayMember = "ManHinh";
 
                 cbxHeDieuHanh.DataSource = dtHeDieuHanh;
                 cbxHeDieuHanh.DisplayMember = "HeDieuHanh";
@@ -151,8 +165,12 @@ namespace QLBanLapTop
                 cbxTenHang.DisplayMember = "TenHang";
                 cbxTenHang.ValueMember = "MaHang";
 
+                cbxLocTenHang.DataSource = dtHangSX;
+                cbxLocTenHang.DisplayMember = "TenHang";
+                cbxLocTenHang.ValueMember = "MaHang";
 
-                conn.Close();
+
+                db.conn.Close();
             }
             catch (Exception)
             {
@@ -206,6 +224,8 @@ namespace QLBanLapTop
             txtTanSoQuet.ResetText();
             txtTenSP.ResetText();
             txtTrongluong.ResetText();
+            txtGiaBan.ResetText();
+            picHinhAnh.Image = null;
         }
 
         private void Enabled(bool check)
@@ -280,45 +300,17 @@ namespace QLBanLapTop
                 return;
             }
             // Mở kết nối
-            conn.Open();
+            db.conn.Open();
             // Thêm dữ liệu
             if (option == 1)
             {
+                bool check = false;
                 try
                 {
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn thêm không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (rs == DialogResult.Yes)
                     {
-                        /* //byte[] image = ImageToByteArray(picHinhAnh.Image);
-                         // Thực hiện lệnh
-                         SqlCommand cmd = new SqlCommand();
-
-                         byte[] image = ImageToByteArray(this.picHinhAnh.Image);
-                         cmd.Connection = conn;
-                         cmd.CommandType = CommandType.Text;
-                         ImageToByteArray(this.picHinhAnh.Image);
-                         //Lệnh Insert InTo
-                         cmd.CommandText = System.String.Concat("Insert Into SanPham Values(" + "'" +
-                         this.txtMaSP.Text.ToString() + "','" +
-                         this.cbxTenHang.SelectedValue.ToString() + "','" +
-                         this.txtTenSP.Text.ToString() + "','" +
-                         Single.Parse(this.txtGiaNhap.Text.ToString()) + "',NULL,'" +
-                         Single.Parse(this.txtTrongluong.Text.ToString()) + "','" +
-                         this.txtPin.Text.ToString() + "','" +
-                         this.cbxManHinh.Text.ToString() + "','" +
-                         this.txtDoPhanGiai.Text.ToString() + "','" +
-                         this.txtTanSoQuet.Text.ToString() + "','" +
-                         this.txtBoXuLy.Text.ToString() + "','" +
-                         this.txtDHAM.Text.ToString() + "','" +
-                         this.cbxRAM.Text.ToString() + "','" +
-                         this.cbxLoaiRam.Text.ToString() + "',NULL,'" +
-                         this.cbxBoNho.Text.ToString() + "','" +
-                         ImageToByteArray(this.picHinhAnh.Image) + "','" +
-                         this.cbxHeDieuHanh.Text.ToString() + "')");
-
-                         cmd.ExecuteNonQuery();*/
-
                         string strSQL = "proc_addNewSanPham";
                         byte[] imgString = ImageToByteArray(picHinhAnh.Image);
                         parameters = new List<SqlParameter>();
@@ -371,19 +363,27 @@ namespace QLBanLapTop
                         parameter = new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text);
                         parameters.Add(parameter);
 
-                        db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                        // Load lại dữ liệu trên DataGridView
-                        LoadData();
-                        ResetText();
-                        // Thông báo
-                        MessageBox.Show("Đã thêm xong!");
-                        groupBox3.Enabled = true;
+                        check = db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+
+                        if (!check)
+                        {
+                            // Load lại dữ liệu trên DataGridView
+                            LoadData();
+                            ResetText();
+                            // Thông báo
+                            MessageBox.Show("Đã thêm xong!");
+                            groupBox3.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Trùng mã sản phẩm", "Thông báo", MessageBoxButtons.OK);
+                        }    
                     }
                     else return;
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!", "Thông báo", MessageBoxButtons.OK);
+                        
                 }
             }
             else if (option == 2)
@@ -391,7 +391,6 @@ namespace QLBanLapTop
                 try
                 {
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn sửa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //byte[] image = ImageToByteArray(picHinhAnh.Image);,
                     // Thực hiện lệnh
                     if (rs == DialogResult.Yes)
                     {
@@ -477,7 +476,7 @@ namespace QLBanLapTop
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
             groupBox3.Enabled = true;
-
+            
             ResetText();
         }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +12,11 @@ namespace QLBanLapTop.DBPlayer
 {
     public class Connection
     {
-        private string ConnStr = "Data Source=(local)" +
+        public string ConnStr = "Data Source=(local)" +
             ";Initial Catalog=QuanLyLapTop" +
             ";Integrated Security=True";
 
-        private SqlConnection conn = null;
+        public SqlConnection conn = null;
         private SqlCommand cmd = null;
         private SqlDataAdapter adapter = null;
         private DataTable dt = null;
@@ -29,7 +31,7 @@ namespace QLBanLapTop.DBPlayer
 
         public bool ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)
         {
-            bool f = false;
+            bool fail = false;
             if (conn.State == ConnectionState.Open)
                 conn.Close();
             conn.Open();
@@ -41,21 +43,19 @@ namespace QLBanLapTop.DBPlayer
             {
                 cmd.Parameters.Add(i);
             }
-
             try
             {
                 cmd.ExecuteNonQuery();
-                f = true;
             }
             catch (SqlException ex)
             {
-                
+                fail = true;
             }
             finally
             {
                 conn.Close();
             }
-            return f;
+            return fail;
         }
     }
     

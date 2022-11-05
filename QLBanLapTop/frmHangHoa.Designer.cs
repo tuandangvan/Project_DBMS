@@ -61,8 +61,10 @@ namespace QLBanLapTop
             this.cbxBoNho = new System.Windows.Forms.ComboBox();
             this.cbxLoaiRam = new System.Windows.Forms.ComboBox();
             this.cbxHeDieuHanh = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.picHinhAnh = new System.Windows.Forms.PictureBox();
             this.btnSua = new System.Windows.Forms.Button();
@@ -71,13 +73,6 @@ namespace QLBanLapTop
             this.btnThem = new System.Windows.Forms.Button();
             this.btnTaiAnh = new System.Windows.Forms.Button();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtUrl = new System.Windows.Forms.TextBox();
-            this.btnHuy = new System.Windows.Forms.Button();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +91,19 @@ namespace QLBanLapTop
             this.BoNho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeDieuHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbxLocRAM = new System.Windows.Forms.ComboBox();
+            this.cbxLocManHinh = new System.Windows.Forms.ComboBox();
+            this.cbxLocBoNho = new System.Windows.Forms.ComboBox();
+            this.cbxLocTenHang = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
@@ -148,17 +156,17 @@ namespace QLBanLapTop
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 110);
+            this.label5.Location = new System.Drawing.Point(10, 137);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 19);
+            this.label5.Size = new System.Drawing.Size(60, 19);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Giá nhập";
+            this.label5.Text = "Giá bán";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 141);
+            this.label6.Location = new System.Drawing.Point(10, 168);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 19);
             this.label6.TabIndex = 0;
@@ -168,7 +176,7 @@ namespace QLBanLapTop
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 173);
+            this.label7.Location = new System.Drawing.Point(10, 200);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 19);
             this.label7.TabIndex = 0;
@@ -178,7 +186,7 @@ namespace QLBanLapTop
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 206);
+            this.label8.Location = new System.Drawing.Point(10, 233);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 19);
             this.label8.TabIndex = 0;
@@ -188,7 +196,7 @@ namespace QLBanLapTop
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 235);
+            this.label9.Location = new System.Drawing.Point(10, 262);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 19);
             this.label9.TabIndex = 0;
@@ -198,7 +206,7 @@ namespace QLBanLapTop
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 269);
+            this.label10.Location = new System.Drawing.Point(10, 296);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 19);
             this.label10.TabIndex = 0;
@@ -208,7 +216,7 @@ namespace QLBanLapTop
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 302);
+            this.label11.Location = new System.Drawing.Point(10, 329);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 19);
             this.label11.TabIndex = 0;
@@ -218,7 +226,7 @@ namespace QLBanLapTop
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(9, 337);
+            this.label12.Location = new System.Drawing.Point(10, 364);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 19);
             this.label12.TabIndex = 0;
@@ -228,7 +236,7 @@ namespace QLBanLapTop
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 372);
+            this.label13.Location = new System.Drawing.Point(10, 399);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 19);
             this.label13.TabIndex = 0;
@@ -238,7 +246,7 @@ namespace QLBanLapTop
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 407);
+            this.label14.Location = new System.Drawing.Point(10, 434);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(81, 19);
             this.label14.TabIndex = 0;
@@ -248,7 +256,7 @@ namespace QLBanLapTop
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(9, 441);
+            this.label15.Location = new System.Drawing.Point(10, 468);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 19);
             this.label15.TabIndex = 0;
@@ -273,7 +281,7 @@ namespace QLBanLapTop
             // txtGiaNhap
             // 
             this.txtGiaNhap.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaNhap.Location = new System.Drawing.Point(119, 107);
+            this.txtGiaNhap.Location = new System.Drawing.Point(119, 105);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(151, 22);
             this.txtGiaNhap.TabIndex = 1;
@@ -281,7 +289,7 @@ namespace QLBanLapTop
             // txtTrongluong
             // 
             this.txtTrongluong.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrongluong.Location = new System.Drawing.Point(119, 137);
+            this.txtTrongluong.Location = new System.Drawing.Point(120, 164);
             this.txtTrongluong.Name = "txtTrongluong";
             this.txtTrongluong.Size = new System.Drawing.Size(151, 22);
             this.txtTrongluong.TabIndex = 1;
@@ -289,7 +297,7 @@ namespace QLBanLapTop
             // txtPin
             // 
             this.txtPin.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPin.Location = new System.Drawing.Point(119, 170);
+            this.txtPin.Location = new System.Drawing.Point(120, 197);
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(151, 22);
             this.txtPin.TabIndex = 1;
@@ -297,7 +305,7 @@ namespace QLBanLapTop
             // txtDoPhanGiai
             // 
             this.txtDoPhanGiai.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoPhanGiai.Location = new System.Drawing.Point(119, 232);
+            this.txtDoPhanGiai.Location = new System.Drawing.Point(120, 259);
             this.txtDoPhanGiai.Name = "txtDoPhanGiai";
             this.txtDoPhanGiai.Size = new System.Drawing.Size(151, 22);
             this.txtDoPhanGiai.TabIndex = 1;
@@ -305,7 +313,7 @@ namespace QLBanLapTop
             // txtBoXuLy
             // 
             this.txtBoXuLy.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoXuLy.Location = new System.Drawing.Point(119, 301);
+            this.txtBoXuLy.Location = new System.Drawing.Point(120, 328);
             this.txtBoXuLy.Name = "txtBoXuLy";
             this.txtBoXuLy.Size = new System.Drawing.Size(151, 22);
             this.txtBoXuLy.TabIndex = 1;
@@ -313,7 +321,7 @@ namespace QLBanLapTop
             // txtTanSoQuet
             // 
             this.txtTanSoQuet.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTanSoQuet.Location = new System.Drawing.Point(119, 266);
+            this.txtTanSoQuet.Location = new System.Drawing.Point(120, 293);
             this.txtTanSoQuet.Name = "txtTanSoQuet";
             this.txtTanSoQuet.Size = new System.Drawing.Size(151, 22);
             this.txtTanSoQuet.TabIndex = 1;
@@ -321,7 +329,7 @@ namespace QLBanLapTop
             // txtDHAM
             // 
             this.txtDHAM.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDHAM.Location = new System.Drawing.Point(119, 334);
+            this.txtDHAM.Location = new System.Drawing.Point(120, 361);
             this.txtDHAM.Name = "txtDHAM";
             this.txtDHAM.Size = new System.Drawing.Size(151, 22);
             this.txtDHAM.TabIndex = 1;
@@ -330,7 +338,7 @@ namespace QLBanLapTop
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(9, 474);
+            this.label16.Location = new System.Drawing.Point(10, 501);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(98, 19);
             this.label16.TabIndex = 0;
@@ -357,6 +365,7 @@ namespace QLBanLapTop
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtPin);
@@ -373,6 +382,7 @@ namespace QLBanLapTop
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtDoPhanGiai);
+            this.groupBox1.Controls.Add(this.txtGiaBan);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtGiaNhap);
             this.groupBox1.Controls.Add(this.label14);
@@ -382,7 +392,7 @@ namespace QLBanLapTop
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 529);
+            this.groupBox1.Size = new System.Drawing.Size(280, 558);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
@@ -390,7 +400,7 @@ namespace QLBanLapTop
             // 
             this.cbxRAM.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxRAM.FormattingEnabled = true;
-            this.cbxRAM.Location = new System.Drawing.Point(119, 368);
+            this.cbxRAM.Location = new System.Drawing.Point(120, 395);
             this.cbxRAM.Name = "cbxRAM";
             this.cbxRAM.Size = new System.Drawing.Size(151, 23);
             this.cbxRAM.TabIndex = 9;
@@ -399,7 +409,7 @@ namespace QLBanLapTop
             // 
             this.cbxManHinh.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxManHinh.FormattingEnabled = true;
-            this.cbxManHinh.Location = new System.Drawing.Point(119, 202);
+            this.cbxManHinh.Location = new System.Drawing.Point(120, 229);
             this.cbxManHinh.Name = "cbxManHinh";
             this.cbxManHinh.Size = new System.Drawing.Size(151, 23);
             this.cbxManHinh.TabIndex = 8;
@@ -408,7 +418,7 @@ namespace QLBanLapTop
             // 
             this.cbxBoNho.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxBoNho.FormattingEnabled = true;
-            this.cbxBoNho.Location = new System.Drawing.Point(119, 432);
+            this.cbxBoNho.Location = new System.Drawing.Point(120, 459);
             this.cbxBoNho.Name = "cbxBoNho";
             this.cbxBoNho.Size = new System.Drawing.Size(151, 23);
             this.cbxBoNho.TabIndex = 3;
@@ -417,7 +427,7 @@ namespace QLBanLapTop
             // 
             this.cbxLoaiRam.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLoaiRam.FormattingEnabled = true;
-            this.cbxLoaiRam.Location = new System.Drawing.Point(119, 402);
+            this.cbxLoaiRam.Location = new System.Drawing.Point(120, 429);
             this.cbxLoaiRam.Name = "cbxLoaiRam";
             this.cbxLoaiRam.Size = new System.Drawing.Size(151, 23);
             this.cbxLoaiRam.TabIndex = 3;
@@ -426,16 +436,26 @@ namespace QLBanLapTop
             // 
             this.cbxHeDieuHanh.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxHeDieuHanh.FormattingEnabled = true;
-            this.cbxHeDieuHanh.Location = new System.Drawing.Point(119, 466);
+            this.cbxHeDieuHanh.Location = new System.Drawing.Point(120, 493);
             this.cbxHeDieuHanh.Name = "cbxHeDieuHanh";
             this.cbxHeDieuHanh.Size = new System.Drawing.Size(151, 23);
             this.cbxHeDieuHanh.TabIndex = 3;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(10, 108);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Giá nhập";
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Enabled = false;
             this.txtSoLuong.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.Location = new System.Drawing.Point(119, 501);
+            this.txtSoLuong.Location = new System.Drawing.Point(120, 528);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(151, 22);
             this.txtSoLuong.TabIndex = 1;
@@ -444,11 +464,20 @@ namespace QLBanLapTop
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 504);
+            this.label18.Location = new System.Drawing.Point(10, 531);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(70, 19);
             this.label18.TabIndex = 0;
             this.label18.Text = "Số lượng";
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Enabled = false;
+            this.txtGiaBan.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaBan.Location = new System.Drawing.Point(119, 134);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(151, 22);
+            this.txtGiaBan.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -546,89 +575,13 @@ namespace QLBanLapTop
             this.BoNho,
             this.HinhAnh,
             this.HeDieuHanh});
-            this.dgvSanPham.Location = new System.Drawing.Point(8, 48);
+            this.dgvSanPham.Location = new System.Drawing.Point(7, 105);
             this.dgvSanPham.Name = "dgvSanPham";
             this.dgvSanPham.RowHeadersWidth = 51;
             this.dgvSanPham.RowTemplate.Height = 24;
-            this.dgvSanPham.Size = new System.Drawing.Size(598, 475);
+            this.dgvSanPham.Size = new System.Drawing.Size(598, 445);
             this.dgvSanPham.TabIndex = 4;
-            this.dgvSanPham.Click += new System.EventHandler(this.dgvSanPham_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(155, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(293, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(6, 21);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(133, 19);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Tìm kiếm theo tên";
-            // 
-            // btnTim
-            // 
-            this.btnTim.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTim.Location = new System.Drawing.Point(454, 18);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 24);
-            this.btnTim.TabIndex = 5;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnTim);
-            this.groupBox3.Controls.Add(this.dgvSanPham);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Location = new System.Drawing.Point(544, 67);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(611, 529);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtUrl);
-            this.groupBox4.Controls.Add(this.btnXoa);
-            this.groupBox4.Controls.Add(this.btnHuy);
-            this.groupBox4.Controls.Add(this.btnLuu);
-            this.groupBox4.Controls.Add(this.btnThem);
-            this.groupBox4.Controls.Add(this.groupBox2);
-            this.groupBox4.Controls.Add(this.btnTaiAnh);
-            this.groupBox4.Controls.Add(this.btnSua);
-            this.groupBox4.Location = new System.Drawing.Point(298, 67);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(240, 529);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.Location = new System.Drawing.Point(6, 235);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(217, 22);
-            this.txtUrl.TabIndex = 6;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Enabled = false;
-            this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(128, 398);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(70, 34);
-            this.btnHuy.TabIndex = 6;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             // 
             // MaSP
             // 
@@ -777,12 +730,154 @@ namespace QLBanLapTop
             this.HeDieuHanh.Name = "HeDieuHanh";
             this.HeDieuHanh.Width = 170;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(11, 11);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 19);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Bộ lọc";
+            // 
+            // btnTim
+            // 
+            this.btnTim.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim.Location = new System.Drawing.Point(515, 46);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 30);
+            this.btnTim.TabIndex = 5;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbxLocRAM);
+            this.groupBox3.Controls.Add(this.cbxLocManHinh);
+            this.groupBox3.Controls.Add(this.cbxLocBoNho);
+            this.groupBox3.Controls.Add(this.cbxLocTenHang);
+            this.groupBox3.Controls.Add(this.btnTim);
+            this.groupBox3.Controls.Add(this.dgvSanPham);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Location = new System.Drawing.Point(544, 67);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(611, 558);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            // 
+            // cbxLocRAM
+            // 
+            this.cbxLocRAM.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLocRAM.FormattingEnabled = true;
+            this.cbxLocRAM.Location = new System.Drawing.Point(264, 62);
+            this.cbxLocRAM.Name = "cbxLocRAM";
+            this.cbxLocRAM.Size = new System.Drawing.Size(101, 23);
+            this.cbxLocRAM.TabIndex = 9;
+            // 
+            // cbxLocManHinh
+            // 
+            this.cbxLocManHinh.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLocManHinh.FormattingEnabled = true;
+            this.cbxLocManHinh.Location = new System.Drawing.Point(134, 62);
+            this.cbxLocManHinh.Name = "cbxLocManHinh";
+            this.cbxLocManHinh.Size = new System.Drawing.Size(95, 23);
+            this.cbxLocManHinh.TabIndex = 8;
+            // 
+            // cbxLocBoNho
+            // 
+            this.cbxLocBoNho.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLocBoNho.FormattingEnabled = true;
+            this.cbxLocBoNho.Location = new System.Drawing.Point(400, 62);
+            this.cbxLocBoNho.Name = "cbxLocBoNho";
+            this.cbxLocBoNho.Size = new System.Drawing.Size(95, 23);
+            this.cbxLocBoNho.TabIndex = 3;
+            // 
+            // cbxLocTenHang
+            // 
+            this.cbxLocTenHang.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLocTenHang.FormattingEnabled = true;
+            this.cbxLocTenHang.Location = new System.Drawing.Point(15, 62);
+            this.cbxLocTenHang.Name = "cbxLocTenHang";
+            this.cbxLocTenHang.Size = new System.Drawing.Size(91, 23);
+            this.cbxLocTenHang.TabIndex = 10;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(11, 40);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(69, 19);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Tên hãng";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(260, 40);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "RAM";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(130, 40);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(72, 19);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Màn hình";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(396, 40);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(58, 19);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Bộ nhớ";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnXoa);
+            this.groupBox4.Controls.Add(this.btnHuy);
+            this.groupBox4.Controls.Add(this.btnLuu);
+            this.groupBox4.Controls.Add(this.btnThem);
+            this.groupBox4.Controls.Add(this.groupBox2);
+            this.groupBox4.Controls.Add(this.btnTaiAnh);
+            this.groupBox4.Controls.Add(this.btnSua);
+            this.groupBox4.Location = new System.Drawing.Point(298, 67);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(240, 558);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Enabled = false;
+            this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(128, 398);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(70, 34);
+            this.btnHuy.TabIndex = 6;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
             // frmHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1161, 602);
+            this.ClientSize = new System.Drawing.Size(1161, 637);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -799,7 +894,6 @@ namespace QLBanLapTop
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -844,7 +938,6 @@ namespace QLBanLapTop
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.DataGridView dgvSanPham;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -855,7 +948,6 @@ namespace QLBanLapTop
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
@@ -874,5 +966,15 @@ namespace QLBanLapTop
         private System.Windows.Forms.DataGridViewTextBoxColumn BoNho;
         private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnh;
         private System.Windows.Forms.DataGridViewTextBoxColumn HeDieuHanh;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.ComboBox cbxLocRAM;
+        private System.Windows.Forms.ComboBox cbxLocTenHang;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cbxLocManHinh;
+        private System.Windows.Forms.ComboBox cbxLocBoNho;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }
