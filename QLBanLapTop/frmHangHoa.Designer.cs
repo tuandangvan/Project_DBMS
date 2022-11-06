@@ -104,6 +104,7 @@ namespace QLBanLapTop
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnHuy = new System.Windows.Forms.Button();
+            this.btnBoLoc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
@@ -743,12 +744,13 @@ namespace QLBanLapTop
             // btnTim
             // 
             this.btnTim.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTim.Location = new System.Drawing.Point(515, 46);
+            this.btnTim.Location = new System.Drawing.Point(520, 62);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 30);
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 5;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // groupBox3
             // 
@@ -756,6 +758,7 @@ namespace QLBanLapTop
             this.groupBox3.Controls.Add(this.cbxLocManHinh);
             this.groupBox3.Controls.Add(this.cbxLocBoNho);
             this.groupBox3.Controls.Add(this.cbxLocTenHang);
+            this.groupBox3.Controls.Add(this.btnBoLoc);
             this.groupBox3.Controls.Add(this.btnTim);
             this.groupBox3.Controls.Add(this.dgvSanPham);
             this.groupBox3.Controls.Add(this.label20);
@@ -777,6 +780,7 @@ namespace QLBanLapTop
             this.cbxLocRAM.Name = "cbxLocRAM";
             this.cbxLocRAM.Size = new System.Drawing.Size(101, 23);
             this.cbxLocRAM.TabIndex = 9;
+            this.cbxLocRAM.Click += new System.EventHandler(this.cbxLocRAM_Click);
             // 
             // cbxLocManHinh
             // 
@@ -786,6 +790,7 @@ namespace QLBanLapTop
             this.cbxLocManHinh.Name = "cbxLocManHinh";
             this.cbxLocManHinh.Size = new System.Drawing.Size(95, 23);
             this.cbxLocManHinh.TabIndex = 8;
+            this.cbxLocManHinh.Click += new System.EventHandler(this.cbxLocManHinh_Click);
             // 
             // cbxLocBoNho
             // 
@@ -795,6 +800,7 @@ namespace QLBanLapTop
             this.cbxLocBoNho.Name = "cbxLocBoNho";
             this.cbxLocBoNho.Size = new System.Drawing.Size(95, 23);
             this.cbxLocBoNho.TabIndex = 3;
+            this.cbxLocBoNho.Click += new System.EventHandler(this.cbxLocBoNho_Click);
             // 
             // cbxLocTenHang
             // 
@@ -804,6 +810,7 @@ namespace QLBanLapTop
             this.cbxLocTenHang.Name = "cbxLocTenHang";
             this.cbxLocTenHang.Size = new System.Drawing.Size(91, 23);
             this.cbxLocTenHang.TabIndex = 10;
+            this.cbxLocTenHang.Click += new System.EventHandler(this.cbxLocTenHang_Click);
             // 
             // label20
             // 
@@ -871,6 +878,17 @@ namespace QLBanLapTop
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnBoLoc
+            // 
+            this.btnBoLoc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoLoc.Location = new System.Drawing.Point(520, 31);
+            this.btnBoLoc.Name = "btnBoLoc";
+            this.btnBoLoc.Size = new System.Drawing.Size(75, 23);
+            this.btnBoLoc.TabIndex = 5;
+            this.btnBoLoc.Text = "Bỏ lọc";
+            this.btnBoLoc.UseVisualStyleBackColor = true;
+            this.btnBoLoc.Click += new System.EventHandler(this.btnBoLoc_Click);
             // 
             // frmHangHoa
             // 
@@ -976,5 +994,6 @@ namespace QLBanLapTop
         private System.Windows.Forms.ComboBox cbxLocBoNho;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button btnBoLoc;
     }
 }

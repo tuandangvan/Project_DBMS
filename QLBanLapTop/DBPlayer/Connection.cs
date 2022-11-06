@@ -18,15 +18,10 @@ namespace QLBanLapTop.DBPlayer
 
         public SqlConnection conn = null;
         private SqlCommand cmd = null;
-        private SqlDataAdapter adapter = null;
-        private DataTable dt = null;
         public Connection()
         {
             conn = new SqlConnection(ConnStr);
             cmd = conn.CreateCommand();
-            dt = new DataTable();
-            //err = "";
-
         }
 
         public bool ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)

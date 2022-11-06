@@ -85,6 +85,85 @@ namespace QLBanLapTop
             }
         }
 
+        private void cbxLocTenHang_Click(object sender, EventArgs e)
+        {
+            cbxLocTenHang.DataSource = dtHangSX;
+            cbxLocTenHang.DisplayMember = "TenHang";
+            cbxLocTenHang.ValueMember = "MaHang";
+        }
+
+        private void cbxLocManHinh_Click(object sender, EventArgs e)
+        {
+            cbxLocManHinh.DataSource = dtManhHinh;
+            cbxLocManHinh.DisplayMember = "ManHinh";
+        }
+
+        private void cbxLocRAM_Click(object sender, EventArgs e)
+        {
+            cbxLocRAM.DataSource = dtRAM;
+            cbxLocRAM.DisplayMember = "RAM";
+        }
+
+        private void cbxLocBoNho_Click(object sender, EventArgs e)
+        {
+            cbxLocBoNho.DataSource = dtBoNho;
+            cbxLocBoNho.DisplayMember = "BoNho";
+        }
+
+        private void btnBoLoc_Click(object sender, EventArgs e)
+        {
+            cbxLocRAM.ResetText();
+            cbxLocManHinh.ResetText();
+            cbxLocBoNho.ResetText();
+            cbxLocTenHang.ResetText();
+            ResetText();
+            LoadData();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            ResetText();
+            string findQuery = "Select * from SanPham";
+            if (cbxLocTenHang.Text != "")
+                findQuery += " where MaHang='" + cbxTenHang.SelectedValue.ToString() + "'";
+
+            if (cbxLocManHinh.Text!="")
+                if(findQuery.IndexOf("where")>0)
+                    findQuery += "and ManHinh='" + cbxLocManHinh.Text.ToString() + "'";
+                else
+                    findQuery += " where ManHinh='" + cbxLocManHinh.Text.ToString() + "'";
+
+            if (cbxLocRAM.Text != "")
+                if (findQuery.IndexOf("where") > 0)
+                    findQuery += "and RAM='" + cbxLocRAM.Text.ToString() + "'";
+                else
+                    findQuery += " where RAM='" + cbxLocRAM.Text.ToString() + "'";
+
+            if (cbxLocBoNho.Text != "")
+                if (findQuery.IndexOf("where") > 0)
+                    findQuery += "and BoNho='" + cbxLocBoNho.Text.ToString() + "'";
+                else
+                    findQuery += " where boNho='" + cbxLocBoNho.Text.ToString() + "'";
+
+
+            try
+            {
+                if (db.conn.State == ConnectionState.Open)
+                    db.conn.Close();
+                db.conn.Open();
+                SqlDataAdapter daLoc;
+                DataTable dtLoc;
+
+                daLoc = new SqlDataAdapter(findQuery, db.conn);
+                dtLoc = new DataTable();
+                daLoc.Fill(dtLoc);
+
+                dgvSanPham.DataSource = dtLoc;
+                db.conn.Close();
+            }
+            catch { }
+        }
+
         private void frmHangHoa_Load(object sender, EventArgs e)
         {
 
@@ -138,25 +217,14 @@ namespace QLBanLapTop
                 cbxBoNho.DataSource = dtBoNho;
                 cbxBoNho.DisplayMember = "BoNho";
 
-                cbxLocBoNho.DataSource = dtBoNho;
-                cbxLocBoNho.DisplayMember = "BoNho";
-               
+                cbxRAM.DataSource = dtRAM;
+                cbxRAM.DisplayMember = "RAM";
 
                 cbxLoaiRam.DataSource = dtLoaiRam;
                 cbxLoaiRam.DisplayMember = "LoaiRAM";
 
-                cbxLocRAM.DataSource = dtRAM;
-                cbxLocRAM.DisplayMember = "RAM";
-                cbxLocRAM.
-
-                cbxRAM.DataSource = dtRAM;
-                cbxRAM.DisplayMember = "RAM";
-
                 cbxManHinh.DataSource = dtManhHinh;
                 cbxManHinh.DisplayMember = "ManHinh";
-
-                cbxLocManHinh.DataSource = dtManhHinh;
-                cbxLocManHinh.DisplayMember = "ManHinh";
 
                 cbxHeDieuHanh.DataSource = dtHeDieuHanh;
                 cbxHeDieuHanh.DisplayMember = "HeDieuHanh";
@@ -164,11 +232,6 @@ namespace QLBanLapTop
                 cbxTenHang.DataSource = dtHangSX;
                 cbxTenHang.DisplayMember = "TenHang";
                 cbxTenHang.ValueMember = "MaHang";
-
-                cbxLocTenHang.DataSource = dtHangSX;
-                cbxLocTenHang.DisplayMember = "TenHang";
-                cbxLocTenHang.ValueMember = "MaHang";
-
 
                 db.conn.Close();
             }
@@ -374,9 +437,15 @@ namespace QLBanLapTop
                             MessageBox.Show("Đã thêm xong!");
                             groupBox3.Enabled = true;
                         }
+                        else if(picHinhAnh.Image==null)
+                        {
+                            MessageBox.Show("Chưa có ảnh", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }    
                         else
                         {
                             MessageBox.Show("Trùng mã sản phẩm", "Thông báo", MessageBoxButtons.OK);
+                            return;
                         }    
                     }
                     else return;
