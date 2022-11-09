@@ -16,7 +16,7 @@ namespace QLBanLapTop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMuaHang());
+            Application.Run(new frmKhachHang());
         }
     }
 }

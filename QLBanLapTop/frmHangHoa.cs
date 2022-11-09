@@ -27,7 +27,7 @@ namespace QLBanLapTop
         int option;
 
         SqlParameter parameter;
-        List<SqlParameter> parameters;
+        
         private Connection db = new Connection();
 
 
@@ -289,26 +289,6 @@ namespace QLBanLapTop
             picHinhAnh.Image = null;
         }
 
-        private void Enabled(bool check)
-        {
-            groupBox1.Enabled = true;
-            //txtMaSP.Enabled = true;
-            //txtDHAM.Enabled = true;
-            //txtTenSP.Enabled = true;
-            //txtBoXuLy.Enabled = true;
-            //txtDoPhanGiai.Enabled = true;
-            //txtGiaNhap.Enabled = true;
-            //txtPin.Enabled = true;
-            //txtTanSoQuet.Enabled = true;
-            //txtTrongluong.Enabled = true;
-            //cbxBoNho.Enabled = true;
-            //cbxHeDieuHanh.Enabled = true;
-            //cbxLoaiRam.Enabled = true;
-            //cbxManHinh.Enabled = true;
-            //cbxRAM.Enabled = true;
-            //cbxTenHang.Enabled = true;
-        }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             option = 1;
@@ -341,11 +321,10 @@ namespace QLBanLapTop
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (tl == DialogResult.Yes)
             {
+                List<SqlParameter> parameters = new List<SqlParameter>();
                 string strSQL = "proc_DeleteSanPham";
-                parameters = new List<SqlParameter>();
 
-                parameter = new SqlParameter("@MaSP", txtMaSP.Text);
-                parameters.Add(parameter);
+                parameters.Add(new SqlParameter("@MaSP", txtMaSP.Text));
 
                 db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
                 LoadData();
@@ -374,55 +353,24 @@ namespace QLBanLapTop
                     {
                         string strSQL = "proc_addNewSanPham";
                         byte[] imgString = ImageToByteArray(picHinhAnh.Image);
-                        parameters = new List<SqlParameter>();
+                        List<SqlParameter> parameters = new List<SqlParameter>();
 
-                        parameter = new SqlParameter("@MaSP", txtMaSP.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString());
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TenSP", txtTenSP.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@GiaNhap", txtGiaNhap.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TrongLuong", txtTrongluong.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@Pin", txtPin.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@ManHinh", cbxManHinh.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TanSoQuet", txtTanSoQuet.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@BoXuLi", txtBoXuLy.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@DoHoaAmThanh", txtDHAM.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@RAM", cbxRAM.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@LoaiRAM", cbxLoaiRam.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@BoNho", cbxBoNho.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@HinhAnh", imgString);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text);
-                        parameters.Add(parameter);
+                        parameters.Add(new SqlParameter("@MaSP", txtMaSP.Text));
+                        parameters.Add(new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString()));
+                        parameters.Add(new SqlParameter("@TenSP", txtTenSP.Text));
+                        parameters.Add(new SqlParameter("@GiaNhap", txtGiaNhap.Text));
+                        parameters.Add(new SqlParameter("@TrongLuong", txtTrongluong.Text));
+                        parameters.Add(new SqlParameter("@Pin", txtPin.Text));
+                        parameters.Add(new SqlParameter("@ManHinh", cbxManHinh.Text));
+                        parameters.Add(new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text));
+                        parameters.Add(new SqlParameter("@TanSoQuet", txtTanSoQuet.Text));
+                        parameters.Add(new SqlParameter("@BoXuLi", txtBoXuLy.Text));
+                        parameters.Add(new SqlParameter("@DoHoaAmThanh", txtDHAM.Text));
+                        parameters.Add(new SqlParameter("@RAM", cbxRAM.Text));
+                        parameters.Add(new SqlParameter("@LoaiRAM", cbxLoaiRam.Text));
+                        parameters.Add(new SqlParameter("@BoNho", cbxBoNho.Text));
+                        parameters.Add(new SqlParameter("@HinhAnh", imgString));
+                        parameters.Add(new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text));
 
                         check = db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
 
@@ -463,55 +411,24 @@ namespace QLBanLapTop
                     {
                         string strSQL = "proc_updateSanPham";
                         byte[] imgString = ImageToByteArray(picHinhAnh.Image);
-                        parameters = new List<SqlParameter>();
+                        List<SqlParameter> parameters = new List<SqlParameter>();
 
-                        parameter = new SqlParameter("@MaSP", txtMaSP.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString());
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TenSP", txtTenSP.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@GiaNhap", txtGiaNhap.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TrongLuong", txtTrongluong.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@Pin", txtPin.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@ManHinh", cbxManHinh.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@TanSoQuet", txtTanSoQuet.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@BoXuLi", txtBoXuLy.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@DoHoaAmThanh", txtDHAM.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@RAM", cbxRAM.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@LoaiRAM", cbxLoaiRam.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@BoNho", cbxBoNho.Text);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@HinhAnh", imgString);
-                        parameters.Add(parameter);
-
-                        parameter = new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text);
-                        parameters.Add(parameter);
+                        parameters.Add(new SqlParameter("@MaSP", txtMaSP.Text));
+                        parameters.Add(new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString()));
+                        parameters.Add(new SqlParameter("@TenSP", txtTenSP.Text));
+                        parameters.Add(new SqlParameter("@GiaNhap", txtGiaNhap.Text));
+                        parameters.Add(new SqlParameter("@TrongLuong", txtTrongluong.Text));
+                        parameters.Add(new SqlParameter("@Pin", txtPin.Text));
+                        parameters.Add(new SqlParameter("@ManHinh", cbxManHinh.Text));
+                        parameters.Add(new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text));
+                        parameters.Add(new SqlParameter("@TanSoQuet", txtTanSoQuet.Text));
+                        parameters.Add(new SqlParameter("@BoXuLi", txtBoXuLy.Text));
+                        parameters.Add(new SqlParameter("@DoHoaAmThanh", txtDHAM.Text));
+                        parameters.Add(new SqlParameter("@RAM", cbxRAM.Text));
+                        parameters.Add(new SqlParameter("@LoaiRAM", cbxLoaiRam.Text));
+                        parameters.Add(new SqlParameter("@BoNho", cbxBoNho.Text));
+                        parameters.Add(new SqlParameter("@HinhAnh", imgString));
+                        parameters.Add(new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text));
 
                         db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
                         ResetText();
