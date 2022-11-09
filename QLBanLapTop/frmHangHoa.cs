@@ -174,11 +174,9 @@ namespace QLBanLapTop
         {
             try
             {
-                //conn = new SqlConnection(connectionString);
                 if (db.conn.State == ConnectionState.Open)
                     db.conn.Close();
                 db.conn.Open();
-
 
                 daSanPham = new SqlDataAdapter("Select * From View_ThongTinSanPham", db.conn);
                 daLoaiRAM = new SqlDataAdapter("Select DISTINCT LoaiRAM  FROM SanPham", db.conn);

@@ -9,3 +9,5 @@ D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.c
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.csproj.CoreCompileInputs.cache
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.exe
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.pdb
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmBaoHanh.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmMuaHang.resources

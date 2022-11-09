@@ -98,13 +98,13 @@ namespace QLBanLapTop
             this.cbxLocManHinh = new System.Windows.Forms.ComboBox();
             this.cbxLocBoNho = new System.Windows.Forms.ComboBox();
             this.cbxLocTenHang = new System.Windows.Forms.ComboBox();
+            this.btnBoLoc = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.btnBoLoc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
@@ -578,6 +578,7 @@ namespace QLBanLapTop
             this.HeDieuHanh});
             this.dgvSanPham.Location = new System.Drawing.Point(7, 105);
             this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.ReadOnly = true;
             this.dgvSanPham.RowHeadersWidth = 51;
             this.dgvSanPham.RowTemplate.Height = 24;
             this.dgvSanPham.Size = new System.Drawing.Size(598, 445);
@@ -812,6 +813,17 @@ namespace QLBanLapTop
             this.cbxLocTenHang.TabIndex = 10;
             this.cbxLocTenHang.Click += new System.EventHandler(this.cbxLocTenHang_Click);
             // 
+            // btnBoLoc
+            // 
+            this.btnBoLoc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoLoc.Location = new System.Drawing.Point(520, 31);
+            this.btnBoLoc.Name = "btnBoLoc";
+            this.btnBoLoc.Size = new System.Drawing.Size(75, 23);
+            this.btnBoLoc.TabIndex = 5;
+            this.btnBoLoc.Text = "Bỏ lọc";
+            this.btnBoLoc.UseVisualStyleBackColor = true;
+            this.btnBoLoc.Click += new System.EventHandler(this.btnBoLoc_Click);
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -878,17 +890,6 @@ namespace QLBanLapTop
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnBoLoc
-            // 
-            this.btnBoLoc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoLoc.Location = new System.Drawing.Point(520, 31);
-            this.btnBoLoc.Name = "btnBoLoc";
-            this.btnBoLoc.Size = new System.Drawing.Size(75, 23);
-            this.btnBoLoc.TabIndex = 5;
-            this.btnBoLoc.Text = "Bỏ lọc";
-            this.btnBoLoc.UseVisualStyleBackColor = true;
-            this.btnBoLoc.Click += new System.EventHandler(this.btnBoLoc_Click);
             // 
             // frmHangHoa
             // 
