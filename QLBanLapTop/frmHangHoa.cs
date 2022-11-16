@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using QLBanLapTop.DBPlayer; 
+using QLBanLapTop.DBPlayer;
 
 namespace QLBanLapTop
 {
@@ -26,8 +26,6 @@ namespace QLBanLapTop
 
         int option;
 
-        SqlParameter parameter;
-        
         private Connection db = new Connection();
 
 
@@ -127,8 +125,8 @@ namespace QLBanLapTop
             if (cbxLocTenHang.Text != "")
                 findQuery += " where MaHang='" + cbxTenHang.SelectedValue.ToString() + "'";
 
-            if (cbxLocManHinh.Text!="")
-                if(findQuery.IndexOf("where")>0)
+            if (cbxLocManHinh.Text != "")
+                if (findQuery.IndexOf("where") > 0)
                     findQuery += "and ManHinh='" + cbxLocManHinh.Text.ToString() + "'";
                 else
                     findQuery += " where ManHinh='" + cbxLocManHinh.Text.ToString() + "'";
@@ -162,6 +160,14 @@ namespace QLBanLapTop
                 db.conn.Close();
             }
             catch { }
+        }
+
+        private void txtGiaNhap_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGiaNhap.Text == "")
+                txtGiaBan.Text = "";
+            else
+                txtGiaBan.Text = (double.Parse(txtGiaNhap.Text) * 1.02).ToString();
         }
 
         private void frmHangHoa_Load(object sender, EventArgs e)
@@ -331,6 +337,20 @@ namespace QLBanLapTop
                 ResetText();
             }
         }
+        private bool CheckMaSP(string maSP)
+        {
+            string strSQL = "select * from SanPham where MaSP='" + maSP + "'";
+            if (db.conn.State == ConnectionState.Open)
+                db.conn.Close();
+            db.conn.Open();
+            SqlDataAdapter daMaSP = new SqlDataAdapter(strSQL, db.conn);
+            DataTable dtMaSP = new DataTable();
+            daMaSP.Fill(dtMaSP);
+            db.conn.Close();
+            if (dtMaSP.Rows.Count == 0)
+                return true;//khong trung
+            return false;//trung
+        }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -340,6 +360,8 @@ namespace QLBanLapTop
                 return;
             }
             // Mở kết nối
+            if (db.conn.State == ConnectionState.Open)
+                db.conn.Close();
             db.conn.Open();
             // Thêm dữ liệu
             if (option == 1)
@@ -351,31 +373,35 @@ namespace QLBanLapTop
 
                     if (rs == DialogResult.Yes)
                     {
-                        string strSQL = "proc_addNewSanPham";
-                        byte[] imgString = ImageToByteArray(picHinhAnh.Image);
-                        List<SqlParameter> parameters = new List<SqlParameter>();
-
-                        parameters.Add(new SqlParameter("@MaSP", txtMaSP.Text));
-                        parameters.Add(new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString()));
-                        parameters.Add(new SqlParameter("@TenSP", txtTenSP.Text));
-                        parameters.Add(new SqlParameter("@GiaNhap", txtGiaNhap.Text));
-                        parameters.Add(new SqlParameter("@TrongLuong", txtTrongluong.Text));
-                        parameters.Add(new SqlParameter("@Pin", txtPin.Text));
-                        parameters.Add(new SqlParameter("@ManHinh", cbxManHinh.Text));
-                        parameters.Add(new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text));
-                        parameters.Add(new SqlParameter("@TanSoQuet", txtTanSoQuet.Text));
-                        parameters.Add(new SqlParameter("@BoXuLi", txtBoXuLy.Text));
-                        parameters.Add(new SqlParameter("@DoHoaAmThanh", txtDHAM.Text));
-                        parameters.Add(new SqlParameter("@RAM", cbxRAM.Text));
-                        parameters.Add(new SqlParameter("@LoaiRAM", cbxLoaiRam.Text));
-                        parameters.Add(new SqlParameter("@BoNho", cbxBoNho.Text));
-                        parameters.Add(new SqlParameter("@HinhAnh", imgString));
-                        parameters.Add(new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text));
-
-                        check = db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-
-                        if (!check)
+                        if (!db.Check(txtMaSP.Text, "SanPham", "MaSP"))
                         {
+                            if (picHinhAnh.Image == null)
+                            {
+                                MessageBox.Show("Chưa có ảnh", "Thông báo", MessageBoxButtons.OK);
+                                return;
+                            }
+                            string strSQL = "proc_addNewSanPham";
+                            byte[] imgString = ImageToByteArray(picHinhAnh.Image);
+                            List<SqlParameter> parameters = new List<SqlParameter>();
+
+                            parameters.Add(new SqlParameter("@MaSP", txtMaSP.Text));
+                            parameters.Add(new SqlParameter("@MaHang", cbxTenHang.SelectedValue.ToString()));
+                            parameters.Add(new SqlParameter("@TenSP", txtTenSP.Text));
+                            parameters.Add(new SqlParameter("@GiaNhap", txtGiaNhap.Text));
+                            parameters.Add(new SqlParameter("@TrongLuong", txtTrongluong.Text));
+                            parameters.Add(new SqlParameter("@Pin", txtPin.Text));
+                            parameters.Add(new SqlParameter("@ManHinh", cbxManHinh.Text));
+                            parameters.Add(new SqlParameter("@DoPhanGiai", txtDoPhanGiai.Text));
+                            parameters.Add(new SqlParameter("@TanSoQuet", txtTanSoQuet.Text));
+                            parameters.Add(new SqlParameter("@BoXuLi", txtBoXuLy.Text));
+                            parameters.Add(new SqlParameter("@DoHoaAmThanh", txtDHAM.Text));
+                            parameters.Add(new SqlParameter("@RAM", cbxRAM.Text));
+                            parameters.Add(new SqlParameter("@LoaiRAM", cbxLoaiRam.Text));
+                            parameters.Add(new SqlParameter("@BoNho", cbxBoNho.Text));
+                            parameters.Add(new SqlParameter("@HinhAnh", imgString));
+                            parameters.Add(new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text));
+
+                            db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
                             // Load lại dữ liệu trên DataGridView
                             LoadData();
                             ResetText();
@@ -383,22 +409,21 @@ namespace QLBanLapTop
                             MessageBox.Show("Đã thêm xong!");
                             groupBox3.Enabled = true;
                         }
-                        else if(picHinhAnh.Image==null)
-                        {
-                            MessageBox.Show("Chưa có ảnh", "Thông báo", MessageBoxButtons.OK);
-                            return;
-                        }    
                         else
                         {
                             MessageBox.Show("Trùng mã sản phẩm", "Thông báo", MessageBoxButtons.OK);
                             return;
-                        }    
+                        }
                     }
                     else return;
                 }
                 catch (SqlException)
                 {
-                        
+
+                }
+                finally
+                {
+                    db.conn.Close();
                 }
             }
             else if (option == 2)
@@ -409,6 +434,11 @@ namespace QLBanLapTop
                     // Thực hiện lệnh
                     if (rs == DialogResult.Yes)
                     {
+                        if (picHinhAnh.Image == null)
+                        {
+                            MessageBox.Show("Chưa có ảnh", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
                         string strSQL = "proc_updateSanPham";
                         byte[] imgString = ImageToByteArray(picHinhAnh.Image);
                         List<SqlParameter> parameters = new List<SqlParameter>();
@@ -431,17 +461,20 @@ namespace QLBanLapTop
                         parameters.Add(new SqlParameter("@HeDieuHanh", cbxHeDieuHanh.Text));
 
                         db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                        ResetText();
                         // Load lại dữ liệu trên DataGridView
                         LoadData();
-                        // Thông báo
+                        ResetText();
                         MessageBox.Show("Cập nhật thành công!");
                     }
                     else return;
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không sửa được. Lỗi rồi!", "Thông báo", MessageBoxButtons.OK);
+                }
+                finally
+                {
+                    db.conn.Close();
                 }
             }
             groupBox1.Enabled = false;
@@ -460,12 +493,9 @@ namespace QLBanLapTop
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
             groupBox3.Enabled = true;
-            
+            txtMaSP.Enabled = true;
+
             ResetText();
         }
-
-
-
     }
-
 }

@@ -286,6 +286,7 @@ namespace QLBanLapTop
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(151, 22);
             this.txtGiaNhap.TabIndex = 1;
+            this.txtGiaNhap.TextChanged += new System.EventHandler(this.txtGiaNhap_TextChanged);
             // 
             // txtTrongluong
             // 
@@ -591,6 +592,7 @@ namespace QLBanLapTop
             this.MaSP.HeaderText = "Mã SP";
             this.MaSP.MinimumWidth = 6;
             this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
             this.MaSP.Width = 70;
             // 
             // MaHang
@@ -599,6 +601,7 @@ namespace QLBanLapTop
             this.MaHang.HeaderText = "Mã hãng";
             this.MaHang.MinimumWidth = 6;
             this.MaHang.Name = "MaHang";
+            this.MaHang.ReadOnly = true;
             this.MaHang.Width = 50;
             // 
             // TenSP
@@ -607,6 +610,7 @@ namespace QLBanLapTop
             this.TenSP.HeaderText = "Tên SP";
             this.TenSP.MinimumWidth = 6;
             this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
             this.TenSP.Width = 200;
             // 
             // GiaNhap
@@ -615,6 +619,7 @@ namespace QLBanLapTop
             this.GiaNhap.HeaderText = "Giá nhập";
             this.GiaNhap.MinimumWidth = 6;
             this.GiaNhap.Name = "GiaNhap";
+            this.GiaNhap.ReadOnly = true;
             this.GiaNhap.Width = 125;
             // 
             // GiaBan
@@ -623,6 +628,7 @@ namespace QLBanLapTop
             this.GiaBan.HeaderText = "Giá Bán";
             this.GiaBan.MinimumWidth = 6;
             this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
             this.GiaBan.Width = 125;
             // 
             // TrongLuong
@@ -631,6 +637,7 @@ namespace QLBanLapTop
             this.TrongLuong.HeaderText = "Trọng Lượng";
             this.TrongLuong.MinimumWidth = 6;
             this.TrongLuong.Name = "TrongLuong";
+            this.TrongLuong.ReadOnly = true;
             this.TrongLuong.Width = 125;
             // 
             // Pin
@@ -639,6 +646,7 @@ namespace QLBanLapTop
             this.Pin.HeaderText = "Pin";
             this.Pin.MinimumWidth = 6;
             this.Pin.Name = "Pin";
+            this.Pin.ReadOnly = true;
             this.Pin.Width = 125;
             // 
             // ManHinh
@@ -647,6 +655,7 @@ namespace QLBanLapTop
             this.ManHinh.HeaderText = "Màn Hình";
             this.ManHinh.MinimumWidth = 6;
             this.ManHinh.Name = "ManHinh";
+            this.ManHinh.ReadOnly = true;
             this.ManHinh.Width = 125;
             // 
             // DoPhanGiai
@@ -655,6 +664,7 @@ namespace QLBanLapTop
             this.DoPhanGiai.HeaderText = "Độ phân giải";
             this.DoPhanGiai.MinimumWidth = 6;
             this.DoPhanGiai.Name = "DoPhanGiai";
+            this.DoPhanGiai.ReadOnly = true;
             this.DoPhanGiai.Width = 125;
             // 
             // TanSoQuet
@@ -663,6 +673,7 @@ namespace QLBanLapTop
             this.TanSoQuet.HeaderText = "Tấn số quét";
             this.TanSoQuet.MinimumWidth = 6;
             this.TanSoQuet.Name = "TanSoQuet";
+            this.TanSoQuet.ReadOnly = true;
             this.TanSoQuet.Width = 70;
             // 
             // BoXuLi
@@ -671,6 +682,7 @@ namespace QLBanLapTop
             this.BoXuLi.HeaderText = "Bộ xử lý";
             this.BoXuLi.MinimumWidth = 6;
             this.BoXuLi.Name = "BoXuLi";
+            this.BoXuLi.ReadOnly = true;
             this.BoXuLi.Width = 125;
             // 
             // DoHoaAmThanh
@@ -679,6 +691,7 @@ namespace QLBanLapTop
             this.DoHoaAmThanh.HeaderText = "DHAM";
             this.DoHoaAmThanh.MinimumWidth = 6;
             this.DoHoaAmThanh.Name = "DoHoaAmThanh";
+            this.DoHoaAmThanh.ReadOnly = true;
             this.DoHoaAmThanh.Width = 125;
             // 
             // RAM
@@ -687,6 +700,7 @@ namespace QLBanLapTop
             this.RAM.HeaderText = "RAM";
             this.RAM.MinimumWidth = 6;
             this.RAM.Name = "RAM";
+            this.RAM.ReadOnly = true;
             this.RAM.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.RAM.Width = 50;
             // 
@@ -696,6 +710,7 @@ namespace QLBanLapTop
             this.LoaiRAM.HeaderText = "Loại RAM";
             this.LoaiRAM.MinimumWidth = 6;
             this.LoaiRAM.Name = "LoaiRAM";
+            this.LoaiRAM.ReadOnly = true;
             this.LoaiRAM.Width = 125;
             // 
             // SoLuong
@@ -704,6 +719,7 @@ namespace QLBanLapTop
             this.SoLuong.HeaderText = "Số lượng";
             this.SoLuong.MinimumWidth = 6;
             this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
             this.SoLuong.Width = 50;
             // 
             // BoNho
@@ -712,6 +728,7 @@ namespace QLBanLapTop
             this.BoNho.HeaderText = "Bộ nhớ";
             this.BoNho.MinimumWidth = 6;
             this.BoNho.Name = "BoNho";
+            this.BoNho.ReadOnly = true;
             this.BoNho.Width = 90;
             // 
             // HinhAnh
@@ -721,6 +738,7 @@ namespace QLBanLapTop
             this.HinhAnh.MaxInputLength = 9999999;
             this.HinhAnh.MinimumWidth = 6;
             this.HinhAnh.Name = "HinhAnh";
+            this.HinhAnh.ReadOnly = true;
             this.HinhAnh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HinhAnh.Width = 50;
             // 
@@ -730,6 +748,7 @@ namespace QLBanLapTop
             this.HeDieuHanh.HeaderText = "Hệ điều hành";
             this.HeDieuHanh.MinimumWidth = 6;
             this.HeDieuHanh.Name = "HeDieuHanh";
+            this.HeDieuHanh.ReadOnly = true;
             this.HeDieuHanh.Width = 170;
             // 
             // label17

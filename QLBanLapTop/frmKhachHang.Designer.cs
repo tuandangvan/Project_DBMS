@@ -38,57 +38,69 @@ namespace QLBanLapTop
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelet = new System.Windows.Forms.Button();
             this.test = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 56);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Số điện thoại";
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(152, 54);
+            this.txtSDT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.Location = new System.Drawing.Point(153, 28);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(164, 22);
+            this.txtSDT.Size = new System.Drawing.Size(164, 27);
             this.txtSDT.TabIndex = 2;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(152, 85);
+            this.txtHoTen.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Location = new System.Drawing.Point(153, 62);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(164, 22);
+            this.txtHoTen.Size = new System.Drawing.Size(164, 27);
             this.txtHoTen.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 86);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Họ Tên";
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(152, 120);
+            this.txtDiaChi.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiaChi.Location = new System.Drawing.Point(153, 98);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(164, 22);
+            this.txtDiaChi.Size = new System.Drawing.Size(164, 27);
             this.txtDiaChi.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 122);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.Size = new System.Drawing.Size(58, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Địa chỉ";
             // 
@@ -101,7 +113,7 @@ namespace QLBanLapTop
             this.DiaChi,
             this.LoaiKH});
             this.dgvKhachHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgvKhachHang.Location = new System.Drawing.Point(347, 20);
+            this.dgvKhachHang.Location = new System.Drawing.Point(15, 51);
             this.dgvKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKhachHang.MultiSelect = false;
             this.dgvKhachHang.Name = "dgvKhachHang";
@@ -145,7 +157,8 @@ namespace QLBanLapTop
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(8, 159);
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(9, 143);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 33);
@@ -156,7 +169,8 @@ namespace QLBanLapTop
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(117, 159);
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(118, 143);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 33);
@@ -167,18 +181,20 @@ namespace QLBanLapTop
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(122, 20);
+            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(15, 20);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(205, 22);
+            this.txtSearch.Size = new System.Drawing.Size(205, 27);
             this.txtSearch.TabIndex = 12;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(19, 20);
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(254, 16);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 22);
+            this.btnSearch.Size = new System.Drawing.Size(94, 31);
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Tìm Kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -186,7 +202,8 @@ namespace QLBanLapTop
             // 
             // btnDelet
             // 
-            this.btnDelet.Location = new System.Drawing.Point(233, 159);
+            this.btnDelet.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelet.Location = new System.Drawing.Point(234, 143);
             this.btnDelet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelet.Name = "btnDelet";
             this.btnDelet.Size = new System.Drawing.Size(94, 33);
@@ -205,28 +222,72 @@ namespace QLBanLapTop
             this.test.Text = "Thêm";
             this.test.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnClear);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtSDT);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtHoTen);
+            this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btnDelet);
+            this.groupBox1.Controls.Add(this.txtDiaChi);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Location = new System.Drawing.Point(12, 80);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(339, 229);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(11, 181);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(92, 29);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.Text = "Làm mới";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvKhachHang);
+            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Location = new System.Drawing.Point(357, 80);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(578, 229);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(396, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 32);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Khách Hàng";
+            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 442);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dgvKhachHang);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelet);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtHoTen);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSDT);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(939, 322);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmKhachHang";
             this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +312,9 @@ namespace QLBanLapTop
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelet;
         private System.Windows.Forms.Button test;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClear;
     }
 }

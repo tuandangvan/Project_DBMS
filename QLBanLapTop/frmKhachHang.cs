@@ -24,7 +24,7 @@ namespace QLBanLapTop
 
         SqlDataAdapter daQLKH = null;
         DataTable dtQLKH = null;
-
+        string keyupdate ="";
 
         void LoadData()
         {
@@ -43,24 +43,22 @@ namespace QLBanLapTop
         {
             if (txtSDT.Text.Trim() != "" && txtHoTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "")
             {
+                if (!db.Check(txtSDT.Text, "KhachHang", "SoDTKH"))
+                {
+                    strSQL = "proc_addKhachHang";
+                    List<SqlParameter> parameters= new List<SqlParameter>();
 
-                strSQL = "proc_addKhachHang";
-                parameters = new List<SqlParameter>();
-
-                parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                parameters.Add(parameter);
-
-                parameter = new SqlParameter("@TenKH", txtHoTen.Text);
-                parameters.Add(parameter);
-
-                parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
-                parameters.Add(parameter);
-
-                parameter = new SqlParameter("@LoaiKH", 1);
-                parameters.Add(parameter);
-                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                LoadData();
-
+                    parameters.Add(new SqlParameter("@SoDTKH", txtSDT.Text));
+                    parameters.Add(new SqlParameter("@TenKH", txtHoTen.Text));
+                    parameters.Add(new SqlParameter("@DiaChi", txtDiaChi.Text));
+                    parameters.Add(new SqlParameter("@LoaiKH", 1));
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Số điện thoại đã tồn tại!","Thông báo");
+                }
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -72,7 +70,7 @@ namespace QLBanLapTop
 
             if (r >= 0)
             {
-                /*int r = dgvSanPham.CurrentCell.RowIndex;*/
+                this.keyupdate = dgvKhachHang.Rows[r].Cells[0].Value.ToString();
                 this.txtSDT.Text = dgvKhachHang.Rows[r].Cells[0].Value.ToString();
                 this.txtHoTen.Text = dgvKhachHang.Rows[r].Cells[1].Value.ToString();
                 this.txtDiaChi.Text = dgvKhachHang.Rows[r].Cells[2].Value.ToString();
@@ -85,38 +83,47 @@ namespace QLBanLapTop
                                  MessageBoxButtons.YesNo);
             if (check == DialogResult.Yes)
             {
-                strSQL = "proc_DeleteKhachHang";
-                parameters = new List<SqlParameter>();
+                if (db.Check(txtSDT.Text, "KhachHang", "SoDTKH") == true)
+                {
+                    strSQL = "proc_DeleteKhachHang";
+                    List<SqlParameter> parameters = new List<SqlParameter>();
 
-                parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                parameters.Add(parameter);
+                    parameters.Add(new SqlParameter("@SoDTKH", txtSDT.Text));
 
-                //String sqlString = "exec proc_updateAccount @idAccount = " + idAccount + ", @nameAccount = '" + nameAccount + "', @password = '" + password + "', @typeOfAcc = " + typeOfAcc + ", @idEmployee = " + idEmployee;
-                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                LoadData();
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
+                }            
             }
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (txtSDT.Text.Trim() != "" && txtHoTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "")
             {
-                strSQL = "proc_updateKhachHang";
-                parameters = new List<SqlParameter>();
+                if (db.Check(keyupdate, "KhachHang", "SoDTKH") == true)
+                {
+                    strSQL = "proc_updateKhachHang";
+                    parameters = new List<SqlParameter>();
 
-                parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
+                    parameters.Add(parameter);
 
-                parameter = new SqlParameter("@TenKH", txtHoTen.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@SoDTKHold", keyupdate);
+                    parameters.Add(parameter);
 
-                parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@TenKH", txtHoTen.Text);
+                    parameters.Add(parameter);
+
+                    parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
+                    parameters.Add(parameter);
 
 
-                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                LoadData();
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
+                }    
+                else
+                    MessageBox.Show("Tài khoản không tồn tại");
+
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -140,6 +147,13 @@ namespace QLBanLapTop
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.txtSDT.Text = "";
+            this.txtHoTen.Text = "";
+            this.txtDiaChi.Text = "";
         }
     }
 }

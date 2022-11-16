@@ -24,9 +24,26 @@ namespace QLBanLapTop.DBPlayer
             cmd = conn.CreateCommand();
         }
 
-        public bool ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)
+        public bool Check(string txt, string table, string colum)
         {
-            bool fail = false;
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+            string sql = "Select * From " + table + " where " + table + "." + colum + " ='" + txt + "'";
+
+            SqlDataAdapter daCheck;
+            DataTable dtCheck;
+            daCheck = new SqlDataAdapter(sql, conn);
+            dtCheck = new DataTable();
+            daCheck.Fill(dtCheck);
+
+            if (dtCheck.Rows.Count > 0)
+                return true;
+
+            return false;
+        }
+
+        public void ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)
+        {
             if (conn.State == ConnectionState.Open)
                 conn.Close();
             conn.Open();
@@ -43,14 +60,12 @@ namespace QLBanLapTop.DBPlayer
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
-            {
-                fail = true;
+            { 
             }
             finally
             {
                 conn.Close();
             }
-            return fail;
         }
     }
     
