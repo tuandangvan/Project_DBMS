@@ -71,9 +71,10 @@ namespace QLBanLapTop
             // lbNameNV
             // 
             this.lbNameNV.AutoSize = true;
+            this.lbNameNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNameNV.Location = new System.Drawing.Point(641, 188);
             this.lbNameNV.Name = "lbNameNV";
-            this.lbNameNV.Size = new System.Drawing.Size(0, 17);
+            this.lbNameNV.Size = new System.Drawing.Size(0, 22);
             this.lbNameNV.TabIndex = 19;
             // 
             // cbTenNV
@@ -84,6 +85,7 @@ namespace QLBanLapTop
             this.cbTenNV.Name = "cbTenNV";
             this.cbTenNV.Size = new System.Drawing.Size(244, 30);
             this.cbTenNV.TabIndex = 18;
+            this.cbTenNV.SelectedIndexChanged += new System.EventHandler(this.cbTenNV_SelectedIndexChanged);
             // 
             // cbLoaiTK
             // 
@@ -96,7 +98,7 @@ namespace QLBanLapTop
             // 
             // txtIdAcc
             // 
-            this.txtIdAcc.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAcc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdAcc.Location = new System.Drawing.Point(228, 41);
             this.txtIdAcc.Name = "txtIdAcc";
             this.txtIdAcc.Size = new System.Drawing.Size(221, 30);
@@ -104,7 +106,7 @@ namespace QLBanLapTop
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(228, 155);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(221, 30);
@@ -112,7 +114,7 @@ namespace QLBanLapTop
             // 
             // txtUserName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Century", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(228, 101);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(221, 30);
@@ -121,17 +123,17 @@ namespace QLBanLapTop
             // lblEmployee
             // 
             this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployee.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployee.Location = new System.Drawing.Point(526, 164);
             this.lblEmployee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(109, 23);
+            this.lblEmployee.Size = new System.Drawing.Size(92, 22);
             this.lblEmployee.TabIndex = 9;
             this.lblEmployee.Text = "Nhân Viên";
             // 
             // btnReload
             // 
-            this.btnReload.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReload.Location = new System.Drawing.Point(157, 240);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(110, 43);
@@ -141,7 +143,7 @@ namespace QLBanLapTop
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(6, 48);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 43);
@@ -152,7 +154,7 @@ namespace QLBanLapTop
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(6, 137);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(110, 43);
@@ -163,7 +165,7 @@ namespace QLBanLapTop
             // 
             // btnEdit
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Location = new System.Drawing.Point(157, 48);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(110, 43);
@@ -175,33 +177,33 @@ namespace QLBanLapTop
             // lblTypeAcc
             // 
             this.lblTypeAcc.AutoSize = true;
-            this.lblTypeAcc.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeAcc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeAcc.Location = new System.Drawing.Point(526, 103);
             this.lblTypeAcc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTypeAcc.Name = "lblTypeAcc";
-            this.lblTypeAcc.Size = new System.Drawing.Size(149, 23);
+            this.lblTypeAcc.Size = new System.Drawing.Size(134, 22);
             this.lblTypeAcc.TabIndex = 10;
             this.lblTypeAcc.Text = "Loại Tài Khoản";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(61, 161);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(101, 23);
+            this.lblPassword.Size = new System.Drawing.Size(87, 22);
             this.lblPassword.TabIndex = 11;
             this.lblPassword.Text = "Mật Khẩu";
             // 
             // lblIDAcount
             // 
             this.lblIDAcount.AutoSize = true;
-            this.lblIDAcount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDAcount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDAcount.Location = new System.Drawing.Point(224, 41);
             this.lblIDAcount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDAcount.Name = "lblIDAcount";
-            this.lblIDAcount.Size = new System.Drawing.Size(0, 23);
+            this.lblIDAcount.Size = new System.Drawing.Size(0, 22);
             this.lblIDAcount.TabIndex = 6;
             // 
             // groupBox3
@@ -212,6 +214,7 @@ namespace QLBanLapTop
             this.groupBox3.Controls.Add(this.btnEdit);
             this.groupBox3.Controls.Add(this.btnSave);
             this.groupBox3.Controls.Add(this.btnCancel);
+            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(686, 238);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(289, 310);
@@ -221,7 +224,7 @@ namespace QLBanLapTop
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(157, 137);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 43);
@@ -232,7 +235,7 @@ namespace QLBanLapTop
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(6, 241);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 43);
@@ -244,22 +247,22 @@ namespace QLBanLapTop
             // lbl10
             // 
             this.lbl10.AutoSize = true;
-            this.lbl10.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl10.Location = new System.Drawing.Point(61, 41);
             this.lbl10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl10.Name = "lbl10";
-            this.lbl10.Size = new System.Drawing.Size(114, 23);
+            this.lbl10.Size = new System.Drawing.Size(99, 22);
             this.lbl10.TabIndex = 7;
             this.lbl10.Text = "ID Account";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.Location = new System.Drawing.Point(61, 100);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(155, 23);
+            this.lblUserName.Size = new System.Drawing.Size(133, 22);
             this.lblUserName.TabIndex = 8;
             this.lblUserName.Text = "Tên Đăng Nhập";
             // 
@@ -330,13 +333,13 @@ namespace QLBanLapTop
             this.groupBox1.Controls.Add(this.lbl10);
             this.groupBox1.Controls.Add(this.lblUserName);
             this.groupBox1.Enabled = false;
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(971, 208);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tài khoản";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // frmTaiKhoan
             // 
@@ -346,8 +349,12 @@ namespace QLBanLapTop
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dgvTaiKhoan);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTaiKhoan";
+            this.Load += new System.EventHandler(this.frmTaiKhoan_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
             this.groupBox1.ResumeLayout(false);

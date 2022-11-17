@@ -177,6 +177,7 @@ namespace QLBanLapTop
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 363);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -184,7 +185,9 @@ namespace QLBanLapTop
             this.Controls.Add(this.btnHienPass);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);

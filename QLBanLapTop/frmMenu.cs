@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLBanLapTop
 {
-    public partial class frmChinh : Form
+    public partial class frmMenu : Form
     {
-        public frmChinh()
+        public frmMenu()
         {
             InitializeComponent();
         }
@@ -57,6 +57,44 @@ namespace QLBanLapTop
         {
             frmMuaHang frm = new frmMuaHang();
             frm.Show();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            if (frmTaiKhoan.Permission())
+            {
+                btnSanPham.Enabled = true;
+                btnNhanVien.Enabled = true;
+                btnLichSuMuaHang.Enabled = true;
+                btnKhachHang.Enabled = true;
+                btnMuaHang.Enabled = true;
+                btnTaiKhoan.Enabled = true;
+                btnKhoHang.Enabled = true;
+               
+            }  
+            else
+            {
+                btnSanPham.Enabled = false;
+                btnNhanVien.Enabled = true;
+                btnLichSuMuaHang.Enabled = true;
+                btnKhachHang.Enabled = true;
+                btnMuaHang.Enabled = true;
+                btnTaiKhoan.Enabled = false;
+                btnKhoHang.Enabled = false;
+            }    
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frmTaiKhoan frm = new frmTaiKhoan();
+            frm.Show();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            this.Hide();
+            frmLogin.Show();
         }
     }
 }

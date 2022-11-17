@@ -36,12 +36,12 @@ namespace QLBanLapTop
                     string strSQL = "proc_addBaoHanh";
                     List<SqlParameter> parameters = new List<SqlParameter>();
 
-                    parameters.Add(new SqlParameter("@MaNV", cbxNhanVien.SelectedValue.ToString()));
+                    parameters.Add(new SqlParameter("@MaNV", lblMaNV.Text));
                     parameters.Add(new SqlParameter("@MaSP", lblMaSP.Text));
                     parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
                     parameters.Add(new SqlParameter("@SoDTKH", lblSDTKH.Text));
                     parameters.Add(new SqlParameter("@NgayMuaHang", lblNgayMuaHang.Text));
-                    parameters.Add(new SqlParameter("@NgayBaoHanh", lblNgayBaoHanh.Text));
+                    parameters.Add(new SqlParameter("@NgayBaoHanh", DateTime.Now.Date.ToString()));
                     parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
 
                     db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
@@ -49,6 +49,34 @@ namespace QLBanLapTop
                 }
             } catch (Exception ex)
             { }
+        }
+
+        private void dgvBaoHanh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int r = dgvBaoHanh.CurrentCell.RowIndex;
+
+            if (r >= 0)
+            {
+                this.lblMaNV.Text = dgvBaoHanh.Rows[r].Cells[0].Value.ToString();
+                this.txtMaMay.Text = dgvBaoHanh.Rows[r].Cells[2].Value.ToString();
+                this.lblSDTKH.Text = dgvBaoHanh.Rows[r].Cells[3].Value.ToString();
+                this.lblMaSP.Text = dgvBaoHanh.Rows[r].Cells[1].Value.ToString();
+                this.lblNgayMuaHang.Text = dgvBaoHanh.Rows[r].Cells[4].Value.ToString();
+                this.lblNgayBaoHanh.Text = dgvBaoHanh.Rows[r].Cells[5].Value.ToString();
+                this.txtGhiChu.Text = dgvBaoHanh.Rows[r].Cells[6].Value.ToString();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            btnBaoHanh.Enabled = false;
+            btnHuy.Enabled = true;
+
         }
 
         private void btnTimMaMay_Click(object sender, EventArgs e)
@@ -79,13 +107,6 @@ namespace QLBanLapTop
             }
         }
 
-        
-
-        private void cbxNhanVien_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblTenNV.Text = cbxNhanVien.SelectedValue.ToString();
-        }
-
 
         private void frmBaoHanh_Load(object sender, EventArgs e)
         {
@@ -93,26 +114,20 @@ namespace QLBanLapTop
         }
         private void LoadData()
         {
+            lblTenNV.Text = frmLogin.nameEmp;
+            lblMaNV.Text = frmLogin.idEmp;
             try
             {
                 if (db.conn.State == ConnectionState.Open)
                     db.conn.Close();
                 db.conn.Open();
                 daLichSuBaoHanh = new SqlDataAdapter("Select * From View_LichSuBaoHanh", db.conn);
-                daNhanVien = new SqlDataAdapter("Select * From NhanVien", db.conn);
 
                 //doi du lieu
                 dtLichSuBaoHanh = new DataTable();
                 daLichSuBaoHanh.Fill(dtLichSuBaoHanh);
                 dgvBaoHanh.DataSource = dtLichSuBaoHanh;
 
-                dtNhanVien = new DataTable();
-                daNhanVien.Fill(dtNhanVien);
-                
-                cbxNhanVien.DataSource = dtNhanVien;
-                cbxNhanVien.DisplayMember = "TenNV";
-                cbxNhanVien.ValueMember = "MaNV";
-                lblTenNV.Text = cbxNhanVien.SelectedValue.ToString();
 
                 db.conn.Close();
                 lblNgayBaoHanh.Text = DateTime.Today.ToString();

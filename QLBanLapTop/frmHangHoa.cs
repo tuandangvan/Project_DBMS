@@ -38,42 +38,43 @@ namespace QLBanLapTop
             {
                 try
                 {
+                    //double a = double.Parse(dgvSanPham.Rows[r].Cells[3].Value.ToString());
                     this.txtMaSP.Text =
-                    dgvSanPham.Rows[r].Cells[0].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[0].Value.ToString().TrimEnd();
                     this.cbxTenHang.SelectedValue =
-                    dgvSanPham.Rows[r].Cells[1].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[1].Value.ToString().TrimEnd();
                     this.txtTenSP.Text =
-                    dgvSanPham.Rows[r].Cells[2].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[2].Value.ToString().TrimEnd();
                     this.txtGiaNhap.Text =
-                    dgvSanPham.Rows[r].Cells[3].Value.ToString();
+                    (double.Parse(dgvSanPham.Rows[r].Cells[3].Value.ToString())).ToString().TrimEnd();
                     this.txtGiaBan.Text =
-                    dgvSanPham.Rows[r].Cells[4].Value.ToString();
+                    (double.Parse(dgvSanPham.Rows[r].Cells[4].Value.ToString())).ToString().TrimEnd();
                     this.txtTrongluong.Text =
-                    dgvSanPham.Rows[r].Cells[5].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[5].Value.ToString().TrimEnd();
                     this.txtPin.Text =
-                    dgvSanPham.Rows[r].Cells[6].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[6].Value.ToString().TrimEnd();
                     this.cbxManHinh.Text =
-                    dgvSanPham.Rows[r].Cells[7].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[7].Value.ToString().TrimEnd();
                     this.txtDoPhanGiai.Text =
-                    dgvSanPham.Rows[r].Cells[8].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[8].Value.ToString().TrimEnd();
                     this.txtTanSoQuet.Text =
-                    dgvSanPham.Rows[r].Cells[9].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[9].Value.ToString().TrimEnd();
                     this.txtBoXuLy.Text =
-                    dgvSanPham.Rows[r].Cells[10].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[10].Value.ToString().TrimEnd();
                     this.txtDHAM.Text =
-                    dgvSanPham.Rows[r].Cells[11].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[11].Value.ToString().TrimEnd();
                     this.cbxRAM.Text =
-                    dgvSanPham.Rows[r].Cells[12].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[12].Value.ToString().TrimEnd();
                     this.cbxLoaiRam.Text =
-                    dgvSanPham.Rows[r].Cells[13].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[13].Value.ToString().TrimEnd();
                     this.txtSoLuong.Text =
-                    dgvSanPham.Rows[r].Cells[14].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[14].Value.ToString().TrimEnd();
                     this.cbxBoNho.Text =
-                    dgvSanPham.Rows[r].Cells[15].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[15].Value.ToString().TrimEnd();
                     this.picHinhAnh.Image =
                     byteArrayToImage((byte[])dgvSanPham.Rows[r].Cells[16].Value);
                     this.cbxHeDieuHanh.Text =
-                    dgvSanPham.Rows[r].Cells[17].Value.ToString();
+                    dgvSanPham.Rows[r].Cells[17].Value.ToString().TrimEnd();
                 }
                 catch
                 {

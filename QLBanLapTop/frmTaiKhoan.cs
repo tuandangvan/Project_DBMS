@@ -18,11 +18,12 @@ namespace QLBanLapTop
         private int roletemp;
         private bool isAdd = false;
         private bool isEdit = false;
+        
         public frmTaiKhoan()
         {
             InitializeComponent();
         }
-        private bool Permission()
+        public static bool Permission()
         {
             if (frmLogin.idRole == "Nhân Viên")
             {
@@ -83,6 +84,7 @@ namespace QLBanLapTop
             btnSave.Enabled = true;
             btnCancel.Enabled = true;
             btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
             isEdit = true;
         }
 
@@ -208,10 +210,14 @@ namespace QLBanLapTop
                             MessageBoxIcon.Information);
                         resetText();
                         LoadData();
+                        btnSave.Enabled = false;
+                        btnAdd.Enabled = true;
+                        btnDelete.Enabled = true;
+                        btnEdit.Enabled = true;
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Thông tin không hợp lệ", "Thông báo",
+                        MessageBox.Show("Mật khẩu không hợp lệ", "Thông báo",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
@@ -223,6 +229,7 @@ namespace QLBanLapTop
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
             }
+            
         }
         private void resetText()
         {
@@ -288,7 +295,7 @@ namespace QLBanLapTop
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmTaiKhoan_Load(object sender, EventArgs e)
         {
             LoadData();
             BindCbTenNV();

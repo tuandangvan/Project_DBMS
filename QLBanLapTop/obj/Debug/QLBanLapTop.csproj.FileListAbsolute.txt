@@ -17,4 +17,6 @@ D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.f
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmNhaSanXuat.resources
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmNhapHang.resources
 D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmLichSuMuaHang.resources
-D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmChinh.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmLogin.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmTaiKhoan.resources
+D:\HCMUTE\HK1_2022_2023\DBMS\DBS\QLBanLapTop\QLBanLapTop\obj\Debug\QLBanLapTop.frmMenu.resources

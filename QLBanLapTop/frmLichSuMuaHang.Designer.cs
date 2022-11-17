@@ -361,7 +361,10 @@ namespace QLBanLapTop
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgvLichSuMuaHang);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmLichSuMuaHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LichSuMuaHang";
             this.Load += new System.EventHandler(this.frmLichSuMuaHang_Load);
             this.panel2.ResumeLayout(false);

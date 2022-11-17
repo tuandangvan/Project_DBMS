@@ -255,7 +255,6 @@ namespace QLBanLapTop
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 
@@ -290,7 +289,7 @@ namespace QLBanLapTop
             this.dgvDanhSachSP.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDanhSachSP.Size = new System.Drawing.Size(928, 665);
             this.dgvDanhSachSP.TabIndex = 38;
-            this.dgvDanhSachSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSP_CellContentClick);
+            this.dgvDanhSachSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSP_CellClick);
             // 
             // MaSP
             // 
@@ -366,6 +365,7 @@ namespace QLBanLapTop
             this.btnBack.Text = "Trở lại";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmMuaHang
             // 

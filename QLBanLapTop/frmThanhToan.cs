@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QLBanLapTop.DBPlayer;
-using System.IO;
 using System.Data.SqlClient;
+using QLBanLapTop.DBPlayer;
 
 namespace QLBanLapTop
 {
@@ -19,11 +18,28 @@ namespace QLBanLapTop
         {
             InitializeComponent();
         }
+
+        private void frmThanhToan_Load(object sender, EventArgs e)
+        {
+            BindGridCart();
+            ShowLbDate();
+            getSoDTKH();
+            getTenKH();
+            //getMaNV();
+            lbMaNV.Text = frmLogin.idEmp;
+            lbNameNV.Text = frmLogin.nameEmp;
+            TongBill(lbSDT.Text);
+        }
+
+        private void ShowLbDate()
+        {
+            lbDate.Text = DateTime.Now.ToString();
+        }
         private void BindGridCart()
         {
             Connection db = new Connection();
             db.conn.Open();
-            string sql = "Select stt, TenSP, MaMay, GiaBan from DonHang";
+            string sql = "select *from view_DonHang";
             SqlCommand cmd = new SqlCommand(sql, db.conn);
 
             cmd.CommandType = CommandType.Text;
@@ -34,8 +50,11 @@ namespace QLBanLapTop
             da.Fill(dt);
             db.conn.Close();
             dgvGioHang.DataSource = dt;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dgvGioHang.Rows[i].Cells[0].Value = (i + 1);
+            }
         }
-
         private void getSoDTKH()
         {
             DataTable dt = new DataTable();
@@ -52,7 +71,6 @@ namespace QLBanLapTop
                 lbSDT.Text = dt.Rows[0][0].ToString();
             }
         }
-
         private void getTenKH()
         {
             DataTable dt = new DataTable();
@@ -66,7 +84,6 @@ namespace QLBanLapTop
             if (dt.Rows.Count != 0)
                 lbName.Text = dt.Rows[0][0].ToString();
         }
-
         private double TongBill(String SoDTKH)
         {
             Connection db = new Connection();
@@ -120,25 +137,17 @@ namespace QLBanLapTop
                    MessageBoxIcon.Error);
             }
         }
-        private void ShowLbDate()
-        {
-            lbDate.Text = DateTime.Now.ToString();
-        }
-
-        private void frmThanhToan_Load(object sender, EventArgs e)
-        {
-            BindGridCart();
-            ShowLbDate();
-            getSoDTKH();
-            getTenKH();
-            TongBill(lbSDT.Text);
-        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             frmMuaHang frmMuaHang = new frmMuaHang();
             frmMuaHang.Show();
             this.Hide();
+        }
+
+        private void dgvGioHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

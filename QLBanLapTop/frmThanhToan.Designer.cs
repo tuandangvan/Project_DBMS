@@ -46,6 +46,10 @@ namespace QLBanLapTop
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbNameNV = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbMaNV = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +232,59 @@ namespace QLBanLapTop
             this.label1.TabIndex = 12;
             this.label1.Text = "Thanh toán đơn hàng";
             // 
+            // lbNameNV
+            // 
+            this.lbNameNV.AutoSize = true;
+            this.lbNameNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameNV.Location = new System.Drawing.Point(650, 234);
+            this.lbNameNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNameNV.Name = "lbNameNV";
+            this.lbNameNV.Size = new System.Drawing.Size(155, 27);
+            this.lbNameNV.TabIndex = 27;
+            this.lbNameNV.Text = "Tên nhân viên:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(485, 234);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 27);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Tên nhân viên:";
+            // 
+            // lbMaNV
+            // 
+            this.lbMaNV.AutoSize = true;
+            this.lbMaNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaNV.Location = new System.Drawing.Point(644, 174);
+            this.lbMaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaNV.Name = "lbMaNV";
+            this.lbMaNV.Size = new System.Drawing.Size(48, 27);
+            this.lbMaNV.TabIndex = 25;
+            this.lbMaNV.Text = "......";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(485, 174);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(150, 27);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Mã nhân viên:";
+            // 
             // frmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 737);
+            this.Controls.Add(this.lbNameNV);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbMaNV);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.lbName);
@@ -272,5 +324,9 @@ namespace QLBanLapTop
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNameNV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbMaNV;
+        private System.Windows.Forms.Label label6;
     }
 }

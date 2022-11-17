@@ -24,16 +24,15 @@ namespace QLBanLapTop
 
         private void picExit_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool check = Login();
-            frmMuaHang frmMuaHang = new frmMuaHang();
-            frmTaiKhoan frmTaiKhoan = new frmTaiKhoan();
-            //frmMenu frmMenu = new frmMenu();
-            frmLogin frmLogin = new frmLogin();
+            frmMenu frm = new frmMenu();
+            frm.Show();
+            this.Hide();
             try
             {
 

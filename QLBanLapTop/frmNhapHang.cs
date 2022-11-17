@@ -40,6 +40,7 @@ namespace QLBanLapTop
 
                 dgvNhapHang.DataSource = dtKhoHang;
                 db.conn.Close();
+                lblHienNgay.Text = dtpChonNgay.Value.ToString();
             }
             catch
             {
@@ -64,7 +65,6 @@ namespace QLBanLapTop
 
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
-            this.panel2.Enabled = false;
 
             dgvNhapHang.Enabled = false;
             this.btnHuy.Enabled = true;
@@ -91,7 +91,6 @@ namespace QLBanLapTop
 
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
-            this.panel2.Enabled = false;
             this.btnHuy.Enabled = true;
 
             this.txtMaMay.Focus();
@@ -104,7 +103,7 @@ namespace QLBanLapTop
               MessageBoxButtons.YesNo,
               MessageBoxIcon.Question);
             if (tl == DialogResult.Yes)
-                Application.Exit();
+                this.Hide();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -182,19 +181,27 @@ namespace QLBanLapTop
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            dtKhoHang.Clear();
-            SqlCommand command = new SqlCommand();
-            command.Connection = db.conn;
-            command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "Tim_Kiem";
-            command.Parameters.Add("@date", SqlDbType.DateTime).Value = txtTimTheoNgay.Text;
-            daKhoHang.SelectCommand = command;
-            daKhoHang.Fill(dtKhoHang);
-            dgvNhapHang.DataSource = dtKhoHang;
+            try
+            {
+                dtKhoHang.Clear();
+                SqlCommand command = new SqlCommand();
+                command.Connection = db.conn;
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "Tim_Kiem";
+                command.Parameters.Add("@date", SqlDbType.DateTime).Value = dtpChonNgay.Value.Date.ToString();
+                daKhoHang.SelectCommand = command;
+                daKhoHang.Fill(dtKhoHang);
+                dgvNhapHang.DataSource = dtKhoHang;
 
-            this.panel1.Enabled = true;
-            this.btnNhapHang.Enabled = true;
-            this.btnSua.Enabled = true;
+                this.panel1.Enabled = false;
+                this.btnNhapHang.Enabled = true;
+                this.btnSua.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -205,8 +212,17 @@ namespace QLBanLapTop
             this.btnHuy.Enabled = false;
             this.dgvNhapHang.Enabled = true;
             this.btnLuu.Enabled = false;
-            this.panel2.Enabled = true;
             ResetText();
+        }
+
+        private void dtpChonNgay_ValueChanged(object sender, EventArgs e)
+        {
+            lblHienNgay.Text = dtpChonNgay.Value.ToString(); 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

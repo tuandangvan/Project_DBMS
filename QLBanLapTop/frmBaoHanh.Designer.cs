@@ -35,7 +35,7 @@ namespace QLBanLapTop
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSDTKH = new System.Windows.Forms.Label();
             this.lblMaSP = new System.Windows.Forms.Label();
-            this.lblTenNV = new System.Windows.Forms.Label();
+            this.lblMaNV = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaMay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@ namespace QLBanLapTop
             this.btnTimMaMay = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.RichTextBox();
-            this.cbxNhanVien = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNgayMuaHang = new System.Windows.Forms.Label();
             this.lblNgayBaoHanh = new System.Windows.Forms.Label();
@@ -51,15 +50,16 @@ namespace QLBanLapTop
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvBaoHanh = new System.Windows.Forms.DataGridView();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayBaoHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayMuaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayMuaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayBaoHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblTenNV = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBaoHanh)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -96,12 +96,13 @@ namespace QLBanLapTop
             this.btnSua.TabIndex = 6;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblSDTKH);
             this.groupBox1.Controls.Add(this.lblMaSP);
-            this.groupBox1.Controls.Add(this.lblTenNV);
+            this.groupBox1.Controls.Add(this.lblMaNV);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMaMay);
             this.groupBox1.Controls.Add(this.label4);
@@ -110,8 +111,6 @@ namespace QLBanLapTop
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.txtGhiChu);
             this.groupBox1.Controls.Add(this.btnHuy);
-            this.groupBox1.Controls.Add(this.cbxNhanVien);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnBaoHanh);
             this.groupBox1.Controls.Add(this.btnSua);
             this.groupBox1.Controls.Add(this.lblNgayMuaHang);
@@ -124,6 +123,7 @@ namespace QLBanLapTop
             this.groupBox1.Size = new System.Drawing.Size(387, 390);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblSDTKH
             // 
@@ -143,14 +143,14 @@ namespace QLBanLapTop
             this.lblMaSP.Size = new System.Drawing.Size(0, 19);
             this.lblMaSP.TabIndex = 9;
             // 
-            // lblTenNV
+            // lblMaNV
             // 
-            this.lblTenNV.AutoSize = true;
-            this.lblTenNV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenNV.Location = new System.Drawing.Point(137, 45);
-            this.lblTenNV.Name = "lblTenNV";
-            this.lblTenNV.Size = new System.Drawing.Size(0, 19);
-            this.lblTenNV.TabIndex = 8;
+            this.lblMaNV.AutoSize = true;
+            this.lblMaNV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaNV.Location = new System.Drawing.Point(137, 45);
+            this.lblMaNV.Name = "lblMaNV";
+            this.lblMaNV.Size = new System.Drawing.Size(0, 19);
+            this.lblMaNV.TabIndex = 8;
             // 
             // label1
             // 
@@ -219,21 +219,11 @@ namespace QLBanLapTop
             this.txtGhiChu.TabIndex = 7;
             this.txtGhiChu.Text = "";
             // 
-            // cbxNhanVien
-            // 
-            this.cbxNhanVien.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxNhanVien.FormattingEnabled = true;
-            this.cbxNhanVien.Location = new System.Drawing.Point(132, 15);
-            this.cbxNhanVien.Name = "cbxNhanVien";
-            this.cbxNhanVien.Size = new System.Drawing.Size(151, 23);
-            this.cbxNhanVien.TabIndex = 2;
-            this.cbxNhanVien.SelectedIndexChanged += new System.EventHandler(this.cbxNhanVien_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 18);
+            this.label2.Location = new System.Drawing.Point(8, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 19);
             this.label2.TabIndex = 0;
@@ -305,51 +295,16 @@ namespace QLBanLapTop
             this.dgvBaoHanh.RowTemplate.Height = 24;
             this.dgvBaoHanh.Size = new System.Drawing.Size(598, 356);
             this.dgvBaoHanh.TabIndex = 4;
+            this.dgvBaoHanh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBaoHanh_CellClick);
             // 
-            // GhiChu
+            // MaNV
             // 
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.MinimumWidth = 6;
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
-            this.GhiChu.Width = 125;
-            // 
-            // NgayBaoHanh
-            // 
-            this.NgayBaoHanh.DataPropertyName = "NgayBaoHanh";
-            this.NgayBaoHanh.HeaderText = "Ngay bào hành";
-            this.NgayBaoHanh.MinimumWidth = 6;
-            this.NgayBaoHanh.Name = "NgayBaoHanh";
-            this.NgayBaoHanh.ReadOnly = true;
-            this.NgayBaoHanh.Width = 125;
-            // 
-            // NgayMuaHang
-            // 
-            this.NgayMuaHang.DataPropertyName = "NgayMuaHang";
-            this.NgayMuaHang.HeaderText = "Ngày mua hàng";
-            this.NgayMuaHang.MinimumWidth = 6;
-            this.NgayMuaHang.Name = "NgayMuaHang";
-            this.NgayMuaHang.ReadOnly = true;
-            this.NgayMuaHang.Width = 125;
-            // 
-            // SDTKH
-            // 
-            this.SDTKH.DataPropertyName = "SoDTKH";
-            this.SDTKH.HeaderText = "SDT KH";
-            this.SDTKH.MinimumWidth = 6;
-            this.SDTKH.Name = "SDTKH";
-            this.SDTKH.ReadOnly = true;
-            this.SDTKH.Width = 125;
-            // 
-            // MaMay
-            // 
-            this.MaMay.DataPropertyName = "MaMay";
-            this.MaMay.HeaderText = "Mã máy";
-            this.MaMay.MinimumWidth = 6;
-            this.MaMay.Name = "MaMay";
-            this.MaMay.ReadOnly = true;
-            this.MaMay.Width = 125;
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            this.MaNV.Width = 125;
             // 
             // MaSP
             // 
@@ -360,14 +315,50 @@ namespace QLBanLapTop
             this.MaSP.ReadOnly = true;
             this.MaSP.Width = 125;
             // 
-            // MaNV
+            // MaMay
             // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã NV";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Width = 125;
+            this.MaMay.DataPropertyName = "MaMay";
+            this.MaMay.HeaderText = "Mã máy";
+            this.MaMay.MinimumWidth = 6;
+            this.MaMay.Name = "MaMay";
+            this.MaMay.ReadOnly = true;
+            this.MaMay.Width = 125;
+            // 
+            // SDTKH
+            // 
+            this.SDTKH.DataPropertyName = "SoDTKH";
+            this.SDTKH.HeaderText = "SDT KH";
+            this.SDTKH.MinimumWidth = 6;
+            this.SDTKH.Name = "SDTKH";
+            this.SDTKH.ReadOnly = true;
+            this.SDTKH.Width = 125;
+            // 
+            // NgayMuaHang
+            // 
+            this.NgayMuaHang.DataPropertyName = "NgayMuaHang";
+            this.NgayMuaHang.HeaderText = "Ngày mua hàng";
+            this.NgayMuaHang.MinimumWidth = 6;
+            this.NgayMuaHang.Name = "NgayMuaHang";
+            this.NgayMuaHang.ReadOnly = true;
+            this.NgayMuaHang.Width = 125;
+            // 
+            // NgayBaoHanh
+            // 
+            this.NgayBaoHanh.DataPropertyName = "NgayBaoHanh";
+            this.NgayBaoHanh.HeaderText = "Ngay bào hành";
+            this.NgayBaoHanh.MinimumWidth = 6;
+            this.NgayBaoHanh.Name = "NgayBaoHanh";
+            this.NgayBaoHanh.ReadOnly = true;
+            this.NgayBaoHanh.Width = 125;
+            // 
+            // GhiChu
+            // 
+            this.GhiChu.DataPropertyName = "GhiChu";
+            this.GhiChu.HeaderText = "Ghi chú";
+            this.GhiChu.MinimumWidth = 6;
+            this.GhiChu.Name = "GhiChu";
+            this.GhiChu.ReadOnly = true;
+            this.GhiChu.Width = 125;
             // 
             // groupBox3
             // 
@@ -388,15 +379,29 @@ namespace QLBanLapTop
             this.label8.TabIndex = 11;
             this.label8.Text = "Bảo hành";
             // 
+            // lblTenNV
+            // 
+            this.lblTenNV.AutoSize = true;
+            this.lblTenNV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNV.Location = new System.Drawing.Point(136, 32);
+            this.lblTenNV.Name = "lblTenNV";
+            this.lblTenNV.Size = new System.Drawing.Size(0, 19);
+            this.lblTenNV.TabIndex = 10;
+            // 
             // frmBaoHanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 492);
+            this.Controls.Add(this.lblTenNV);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "frmBaoHanh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBaoHanh";
             this.Load += new System.EventHandler(this.frmBaoHanh_Load);
             this.groupBox1.ResumeLayout(false);
@@ -424,8 +429,7 @@ namespace QLBanLapTop
         private System.Windows.Forms.RichTextBox txtGhiChu;
         private System.Windows.Forms.Label lblNgayBaoHanh;
         private System.Windows.Forms.Label lblNgayMuaHang;
-        private System.Windows.Forms.ComboBox cbxNhanVien;
-        private System.Windows.Forms.Label lblTenNV;
+        private System.Windows.Forms.Label lblMaNV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTimMaMay;
         private System.Windows.Forms.TextBox txtMaMay;
@@ -441,5 +445,6 @@ namespace QLBanLapTop
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTenNV;
     }
 }

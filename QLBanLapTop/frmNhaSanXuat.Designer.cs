@@ -268,8 +268,11 @@ namespace QLBanLapTop
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvHSX);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "frmNhaSanXuat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNhaSanXuat";
             this.Load += new System.EventHandler(this.frmNhaSanXuat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHSX)).EndInit();
