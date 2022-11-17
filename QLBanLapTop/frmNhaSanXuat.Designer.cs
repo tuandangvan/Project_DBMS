@@ -31,6 +31,10 @@ namespace QLBanLapTop
         private void InitializeComponent()
         {
             this.dgvHSX = new System.Windows.Forms.DataGridView();
+            this.MaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Website = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtMaHang = new System.Windows.Forms.TextBox();
@@ -44,10 +48,6 @@ namespace QLBanLapTop
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelet = new System.Windows.Forms.Button();
-            this.MaHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Website = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCLear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHSX)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,39 @@ namespace QLBanLapTop
             this.dgvHSX.RowTemplate.Height = 29;
             this.dgvHSX.Size = new System.Drawing.Size(496, 201);
             this.dgvHSX.TabIndex = 8;
-            this.dgvHSX.Click += new System.EventHandler(this.dgvHSX_Click);
+            this.dgvHSX.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHSX_CellClick);
+            // 
+            // MaHang
+            // 
+            this.MaHang.DataPropertyName = "MaHang";
+            this.MaHang.HeaderText = "Mã hãng";
+            this.MaHang.MinimumWidth = 6;
+            this.MaHang.Name = "MaHang";
+            this.MaHang.Width = 70;
+            // 
+            // TenHang
+            // 
+            this.TenHang.DataPropertyName = "TenHang";
+            this.TenHang.HeaderText = "Tên hãng";
+            this.TenHang.MinimumWidth = 6;
+            this.TenHang.Name = "TenHang";
+            this.TenHang.Width = 125;
+            // 
+            // NoiSX
+            // 
+            this.NoiSX.DataPropertyName = "NoiSX";
+            this.NoiSX.HeaderText = "Nơi sản xuất";
+            this.NoiSX.MinimumWidth = 6;
+            this.NoiSX.Name = "NoiSX";
+            this.NoiSX.Width = 125;
+            // 
+            // Website
+            // 
+            this.Website.DataPropertyName = "Website";
+            this.Website.HeaderText = "Website";
+            this.Website.MinimumWidth = 6;
+            this.Website.Name = "Website";
+            this.Website.Width = 125;
             // 
             // btnSearch
             // 
@@ -204,38 +236,6 @@ namespace QLBanLapTop
             this.btnDelet.UseVisualStyleBackColor = true;
             this.btnDelet.Click += new System.EventHandler(this.btnDelet_Click);
             // 
-            // MaHang
-            // 
-            this.MaHang.DataPropertyName = "MaHang";
-            this.MaHang.HeaderText = "Mã hãng";
-            this.MaHang.MinimumWidth = 6;
-            this.MaHang.Name = "MaHang";
-            this.MaHang.Width = 70;
-            // 
-            // TenHang
-            // 
-            this.TenHang.DataPropertyName = "TenHang";
-            this.TenHang.HeaderText = "Tên hãng";
-            this.TenHang.MinimumWidth = 6;
-            this.TenHang.Name = "TenHang";
-            this.TenHang.Width = 125;
-            // 
-            // NoiSX
-            // 
-            this.NoiSX.DataPropertyName = "NoiSX";
-            this.NoiSX.HeaderText = "Nơi sản xuất";
-            this.NoiSX.MinimumWidth = 6;
-            this.NoiSX.Name = "NoiSX";
-            this.NoiSX.Width = 125;
-            // 
-            // Website
-            // 
-            this.Website.DataPropertyName = "Website";
-            this.Website.HeaderText = "Website";
-            this.Website.MinimumWidth = 6;
-            this.Website.Name = "Website";
-            this.Website.Width = 125;
-            // 
             // btnCLear
             // 
             this.btnCLear.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +246,7 @@ namespace QLBanLapTop
             this.btnCLear.TabIndex = 30;
             this.btnCLear.Text = "Làm mới";
             this.btnCLear.UseVisualStyleBackColor = true;
-            this.btnCLear.Click += new System.EventHandler(this.btnCLear_Click);
+            this.btnCLear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmNhaSanXuat
             // 

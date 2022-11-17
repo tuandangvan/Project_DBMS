@@ -241,7 +241,7 @@ namespace QLBanLapTop
             this.dgvNhanVien.RowTemplate.Height = 29;
             this.dgvNhanVien.Size = new System.Drawing.Size(546, 228);
             this.dgvNhanVien.TabIndex = 21;
-            this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
+            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
             // MaNV
             // 
@@ -402,7 +402,6 @@ namespace QLBanLapTop
             this.btnCLear.TabIndex = 29;
             this.btnCLear.Text = "Làm mới";
             this.btnCLear.UseVisualStyleBackColor = true;
-            this.btnCLear.Click += new System.EventHandler(this.btnCLear_Click);
             // 
             // frmNhanVien
             // 

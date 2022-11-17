@@ -93,6 +93,7 @@ namespace QLBanLapTop
                             MessageBoxIcon.Information);
                         resetOrder();
                         BindGridProduct();
+                        BindCbBoxMaMay(txtMaSP.Text);
 
                     }
                     catch (Exception)

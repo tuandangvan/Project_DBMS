@@ -242,6 +242,7 @@ namespace QLBanLapTop
             // 
             // btnClear
             // 
+            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 10.2F);
             this.btnClear.Location = new System.Drawing.Point(11, 181);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(92, 29);

@@ -1,14 +1,14 @@
-﻿using System;
+﻿using QLBanLapTop.DBPlayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using QLBanLapTop.DBPlayer;
 
 namespace QLBanLapTop
 {
@@ -25,10 +25,10 @@ namespace QLBanLapTop
         }
         SqlDataAdapter daQLNV = null;
         DataTable dtQLNV = null;
-        string keyupdate = "";
 
         SqlDataAdapter daPB = null;
         DataTable dtPB = null;
+
 
         void LoadData()
         {
@@ -61,14 +61,16 @@ namespace QLBanLapTop
 
         }
 
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
             if (txtMNV.Text.Trim() != "" && txtHoTen.Text.Trim() != ""
                 && txtDiaChi.Text.Trim() != "" && txtCaLam.Text.Trim() != ""
                 && txtKinhNghiem.Text.Trim() != "" && txtLuong.Text.Trim() != ""
                 )
             {
-                if(db.Check(txtMNV.Text,"NhanVien","MaNV") == false)
+                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == false && db.Check(txtSDT.Text, "NhanVien", "SoDTNV") == false)
                 {
                     strSQL = "proc_addNhanVien";
                     parameters = new List<SqlParameter>();
@@ -101,73 +103,16 @@ namespace QLBanLapTop
                     parameters.Add(parameter);
 
                     db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    MessageBox.Show("Thêm nhân viên thành công");
                     LoadData();
                 }    
                 else
                     MessageBox.Show("Nhân viên đã tồn tại");
+
+
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (txtSearch.Text != "")
-            {
-                if (db.conn.State == ConnectionState.Open)
-                    db.conn.Close();
-                daQLNV = new SqlDataAdapter("Select * from NhanVien where MaNV = '" + txtSearch.Text + "' or MaPB = '" + txtSearch.Text + "' or TenNV = '" + txtSearch.Text + "' or DiaChi = '" + txtSearch.Text + "'" + " or SoDTNV = '" + " or KinhNghiem = '" + " or ChucVu = '" + txtSearch.Text + "'", db.conn);
-                dtQLNV = new DataTable();
-                daQLNV.Fill(dtQLNV);
-                dgvNhanVien.DataSource = dtQLNV;
-            }
-        }
-
-        private void btnDelet_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show("Bạn có muốn xóa Nhân Viên" + " " + txtMNV, "Thông báo",
-                                 MessageBoxButtons.YesNo);
-            if (check == DialogResult.Yes)
-            {
-                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == true)
-                {
-                    strSQL = "proc_DeleteNhanVien";
-                    parameters = new List<SqlParameter>();
-
-                    parameter = new SqlParameter("@MaNV", txtMNV.Text);
-                    parameters.Add(parameter);
-
-                    //String sqlString = "exec proc_updateAccount @idAccount = " + idAccount + ", @nameAccount = '" + nameAccount + "', @password = '" + password + "', @typeOfAcc = " + typeOfAcc + ", @idEmployee = " + idEmployee;
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    LoadData();
-                }    
-                else
-                    MessageBox.Show("Nhân viên không tồn tại");
-
-
-            }
-        }
-
-        private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int r = dgvNhanVien.CurrentCell.RowIndex;
-
-            if (r >= 0)
-            {
-                /*int r = dgvSanPham.CurrentCell.RowIndex;*/
-                this.keyupdate = dgvNhanVien.Rows[r].Cells[0].Value.ToString();
-                this.txtMNV.Text = dgvNhanVien.Rows[r].Cells[0].Value.ToString();
-                this.txtHoTen.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
-                this.txtCaLam.Text = dgvNhanVien.Rows[r].Cells[8].Value.ToString();
-                this.txtKinhNghiem.Text = dgvNhanVien.Rows[r].Cells[6].Value.ToString();
-                this.txtLuong.Text = dgvNhanVien.Rows[r].Cells[5].Value.ToString();
-                this.txtSDT.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString();
-                this.txtDiaChi.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString();
-
-                this.cbbPB.SelectedValue = dgvNhanVien.Rows[r].Cells[1].Value.ToString();
-                this.cbbChucVu.Text = dgvNhanVien.Rows[r].Cells[7].Value.ToString();
-
-            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -176,19 +121,21 @@ namespace QLBanLapTop
                 && txtDiaChi.Text.Trim() != "" && txtCaLam.Text.Trim() != ""
                 && txtKinhNghiem.Text.Trim() != "" && txtLuong.Text.Trim() != ""
                 )
+
             {
-                if (db.Check(keyupdate, "NhanVien", "MaNV") == true)
+                DialogResult check = MessageBox.Show("Bạn có muốn Sửa Nhân Viên" + " " + txtMNV.Text, "Thông báo",
+                                 MessageBoxButtons.YesNo);
+                if (check == DialogResult.No)
+                    return;
+                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == true)
                 {
                     strSQL = "proc_updateNhanVien";
+
                     parameters = new List<SqlParameter>();
 
 
                     parameter = new SqlParameter("@MaNV", txtMNV.Text);
                     parameters.Add(parameter);
-
-                    parameter = new SqlParameter("@MaNVold", keyupdate);
-                    parameters.Add(parameter);
-
 
                     parameter = new SqlParameter("@MaPB", cbbPB.SelectedValue);
                     parameters.Add(parameter);
@@ -212,19 +159,78 @@ namespace QLBanLapTop
                     parameters.Add(parameter);
 
                     db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    MessageBox.Show("Sửa thành công");
                     LoadData();
-                }          
+                }
+                else
+                    MessageBox.Show("Hãng sản xuất không tồn tại");
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
         }
 
-        private void frmNhanVien_Load(object sender, EventArgs e)
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadData();
+            int r = dgvNhanVien.CurrentCell.RowIndex;
+
+            if (r >= 0)
+            {
+                /*int r = dgvSanPham.CurrentCell.RowIndex;*/
+                this.txtMNV.Text = dgvNhanVien.Rows[r].Cells[0].Value.ToString();
+                this.txtHoTen.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
+                this.txtCaLam.Text = dgvNhanVien.Rows[r].Cells[8].Value.ToString();
+                this.txtKinhNghiem.Text = dgvNhanVien.Rows[r].Cells[6].Value.ToString();
+                this.txtLuong.Text = dgvNhanVien.Rows[r].Cells[5].Value.ToString();
+                this.txtSDT.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString();
+                this.txtDiaChi.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString();
+
+                this.cbbPB.SelectedValue = dgvNhanVien.Rows[r].Cells[1].Value.ToString();
+                this.cbbChucVu.Text = dgvNhanVien.Rows[r].Cells[7].Value.ToString();
+
+            }
         }
 
-        private void btnCLear_Click(object sender, EventArgs e)
+        private void btnDelet_Click(object sender, EventArgs e)
+        {
+            DialogResult check = MessageBox.Show("Bạn có muốn xóa Nhân Viên" + " " + txtMNV.Text, "Thông báo",
+                                 MessageBoxButtons.YesNo);
+            if (check == DialogResult.Yes)
+            {
+                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == true)
+                {
+                    strSQL = "proc_DeleteNhanVien";
+                    parameters = new List<SqlParameter>();
+
+                    parameter = new SqlParameter("@MaNV", txtMNV.Text);
+                    parameters.Add(parameter);
+
+                    //String sqlString = "exec proc_updateAccount @idAccount = " + idAccount + ", @nameAccount = '" + nameAccount + "', @password = '" + password + "', @typeOfAcc = " + typeOfAcc + ", @idEmployee = " + idEmployee;
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    MessageBox.Show("Xóa thành công");
+                    LoadData();
+                }
+                else
+                    MessageBox.Show("Nhân viên không tồn tại");
+
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                if (db.conn.State == ConnectionState.Open)
+                    db.conn.Close();
+                daQLNV = new SqlDataAdapter("DECLARE @txt nvarchar(50) = N'" + txtSearch.Text + "';Select * from NhanVien where MaNV =@txt or MaPB =@txt or TenNV =@txt or DiaChi =@txt or SoDTNV =@txt or KinhNghiem =@txt or ChucVu =@txt", db.conn);
+                dtQLNV = new DataTable();
+                daQLNV.Fill(dtQLNV);
+                dgvNhanVien.DataSource = dtQLNV;
+            }
+            else
+                LoadData();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
         {
             this.txtMNV.Text = "";
             this.txtHoTen.Text = "";
@@ -233,8 +239,14 @@ namespace QLBanLapTop
             this.txtLuong.Text = "";
             this.txtSDT.Text = "";
             this.txtDiaChi.Text = "";
+
             this.cbbPB.SelectedValue = "";
             this.cbbChucVu.Text = "";
+        }
+
+        private void frmNhanVien_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

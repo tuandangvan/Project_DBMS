@@ -42,8 +42,10 @@ namespace QLBanLapTop.DBPlayer
             return false;
         }
 
-        public void ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)
+
+        public bool ExecuteProcedure(string sqlProcedure, CommandType ct, List<SqlParameter> parameters)
         {
+            bool check = true;
             if (conn.State == ConnectionState.Open)
                 conn.Close();
             conn.Open();
@@ -60,12 +62,16 @@ namespace QLBanLapTop.DBPlayer
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
-            { 
+            {
+                MessageBox.Show(ex.Message);
+                check = false;//có lỗi
             }
             finally
             {
                 conn.Close();
             }
+
+            return check;
         }
     }
     

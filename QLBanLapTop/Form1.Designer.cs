@@ -30,13 +30,13 @@ namespace QLBanLapTop
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,54 @@ namespace QLBanLapTop
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 403);
             this.panel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(14, 224);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(133, 23);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Khach hàng";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(23, 170);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(133, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Khach hàng";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(23, 127);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(133, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "NSX";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(23, 87);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(133, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Nhân viên";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(23, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Khách hàng";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -69,54 +117,6 @@ namespace QLBanLapTop
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(23, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Khach hàng";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(23, 87);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Nhân viên";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(23, 127);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "NSX";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(23, 170);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Khach hàng";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(14, 224);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Khach hàng";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

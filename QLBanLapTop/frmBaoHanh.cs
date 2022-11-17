@@ -45,6 +45,7 @@ namespace QLBanLapTop
                     parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
 
                     db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
                 }
             } catch (Exception ex)
             { }
