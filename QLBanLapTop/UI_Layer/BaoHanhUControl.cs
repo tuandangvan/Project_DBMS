@@ -27,37 +27,44 @@ namespace QLBanLapTop
 
         private void btnBaoHanh_Click(object sender, EventArgs e)
         {
-            try
+            if (lblMaSP.Text == "")
             {
-                DialogResult rs = MessageBox.Show("Bạn có chắc muốn bảo hành không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (rs == DialogResult.Yes)
-                {
-                    string strSQL = "proc_addBaoHanh";
-                    List<SqlParameter> parameters = new List<SqlParameter>();
-
-                    parameters.Add(new SqlParameter("@MaNV", lblMaNV.Text));
-                    parameters.Add(new SqlParameter("@MaSP", lblMaSP.Text));
-                    parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
-                    parameters.Add(new SqlParameter("@SoDTKH", lblSDTKH.Text));
-                    parameters.Add(new SqlParameter("@NgayMuaHang", lblNgayMuaHang.Text));
-                    parameters.Add(new SqlParameter("@NgayBaoHanh", lblNgayBaoHanh.Text));
-                    parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
-
-                    if (db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters))
-                    {
-                        MessageBox.Show("Bảo hành thành công!");
-                        txtGhiChu.ResetText();
-                        txtMaMay.ResetText();
-                        lblNgayMuaHang.ResetText();
-
-                    }
-                    LoadData();
-                }
+                MessageBox.Show("Vui lòng ấn tìm mã máy!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    DialogResult rs = MessageBox.Show("Bạn có chắc muốn bảo hành không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (rs == DialogResult.Yes)
+                    {
+                        string strSQL = "proc_addBaoHanh";
+                        List<SqlParameter> parameters = new List<SqlParameter>();
+
+                        parameters.Add(new SqlParameter("@MaNV", lblMaNV.Text));
+                        parameters.Add(new SqlParameter("@MaSP", lblMaSP.Text));
+                        parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
+                        parameters.Add(new SqlParameter("@SoDTKH", lblSDTKH.Text));
+                        parameters.Add(new SqlParameter("@NgayMuaHang", lblNgayMuaHang.Text));
+                        parameters.Add(new SqlParameter("@NgayBaoHanh", lblNgayBaoHanh.Text));
+                        parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
+
+                        if (db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters))
+                        {
+                            MessageBox.Show("Bảo hành thành công!");
+                            txtGhiChu.ResetText();
+                            txtMaMay.ResetText();
+                            lblNgayMuaHang.ResetText();
+
+                        }
+                        LoadData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 

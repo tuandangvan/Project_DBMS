@@ -28,7 +28,7 @@ namespace QLBanLapTop
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
@@ -53,6 +53,7 @@ namespace QLBanLapTop
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Kha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,10 +61,9 @@ namespace QLBanLapTop
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(24, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 19);
+            this.label1.Size = new System.Drawing.Size(114, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Số điện thoại";
             // 
@@ -72,10 +72,10 @@ namespace QLBanLapTop
             this.txtSDT.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtSDT.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.txtSDT.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtSDT.Location = new System.Drawing.Point(110, 60);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSDT.Location = new System.Drawing.Point(197, 74);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(135, 24);
+            this.txtSDT.Size = new System.Drawing.Size(179, 29);
             this.txtSDT.TabIndex = 2;
             // 
             // txtHoTen
@@ -83,19 +83,18 @@ namespace QLBanLapTop
             this.txtHoTen.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtHoTen.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.txtHoTen.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtHoTen.Location = new System.Drawing.Point(110, 94);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHoTen.Location = new System.Drawing.Point(197, 114);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(135, 24);
+            this.txtHoTen.Size = new System.Drawing.Size(179, 29);
             this.txtHoTen.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 94);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(24, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 19);
+            this.label2.Size = new System.Drawing.Size(69, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Họ Tên";
             // 
@@ -104,26 +103,25 @@ namespace QLBanLapTop
             this.txtDiaChi.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtDiaChi.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.txtDiaChi.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtDiaChi.Location = new System.Drawing.Point(110, 130);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDiaChi.Location = new System.Drawing.Point(197, 160);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(135, 24);
+            this.txtDiaChi.Size = new System.Drawing.Size(179, 29);
             this.txtDiaChi.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 130);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(24, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 19);
+            this.label3.Size = new System.Drawing.Size(68, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "Địa chỉ";
             // 
             // dgvKhachHang
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 7.8F);
-            this.dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 7.8F);
+            this.dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -133,13 +131,13 @@ namespace QLBanLapTop
             this.LoaiKH});
             this.dgvKhachHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvKhachHang.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvKhachHang.Location = new System.Drawing.Point(260, 20);
-            this.dgvKhachHang.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvKhachHang.Location = new System.Drawing.Point(559, 85);
+            this.dgvKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKhachHang.MultiSelect = false;
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.RowHeadersWidth = 51;
             this.dgvKhachHang.RowTemplate.Height = 29;
-            this.dgvKhachHang.Size = new System.Drawing.Size(416, 190);
+            this.dgvKhachHang.Size = new System.Drawing.Size(553, 279);
             this.dgvKhachHang.TabIndex = 7;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
@@ -178,10 +176,10 @@ namespace QLBanLapTop
             // btnAdd
             // 
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(4, 168);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Location = new System.Drawing.Point(6, 221);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 26);
+            this.btnAdd.Size = new System.Drawing.Size(100, 32);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -190,10 +188,10 @@ namespace QLBanLapTop
             // btnUpdate
             // 
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUpdate.Location = new System.Drawing.Point(86, 168);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Location = new System.Drawing.Point(153, 221);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 26);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 32);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -204,19 +202,19 @@ namespace QLBanLapTop
             this.txtSearch.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.txtSearch.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtSearch.Location = new System.Drawing.Point(90, 26);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(197, 32);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(155, 24);
+            this.txtSearch.Size = new System.Drawing.Size(205, 29);
             this.txtSearch.TabIndex = 12;
             // 
             // btnSearch
             // 
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearch.Location = new System.Drawing.Point(13, 26);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Location = new System.Drawing.Point(17, 32);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 26);
+            this.btnSearch.Size = new System.Drawing.Size(100, 32);
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Tìm Kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -225,10 +223,10 @@ namespace QLBanLapTop
             // btnClear
             // 
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClear.Location = new System.Drawing.Point(173, 168);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Location = new System.Drawing.Point(302, 221);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 26);
+            this.btnClear.Size = new System.Drawing.Size(100, 32);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Làm mới";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -249,10 +247,10 @@ namespace QLBanLapTop
             this.listviewDHGN.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listviewDHGN.HideSelection = false;
             this.listviewDHGN.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listviewDHGN.Location = new System.Drawing.Point(6, 226);
-            this.listviewDHGN.Margin = new System.Windows.Forms.Padding(2);
+            this.listviewDHGN.Location = new System.Drawing.Point(231, 432);
+            this.listviewDHGN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listviewDHGN.Name = "listviewDHGN";
-            this.listviewDHGN.Size = new System.Drawing.Size(188, 103);
+            this.listviewDHGN.Size = new System.Drawing.Size(249, 126);
             this.listviewDHGN.TabIndex = 30;
             this.listviewDHGN.Tag = "";
             this.listviewDHGN.UseCompatibleStateImageBehavior = false;
@@ -274,10 +272,10 @@ namespace QLBanLapTop
             this.listViewTDH.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.listViewTDH.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listViewTDH.HideSelection = false;
-            this.listViewTDH.Location = new System.Drawing.Point(192, 226);
-            this.listViewTDH.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewTDH.Location = new System.Drawing.Point(479, 432);
+            this.listViewTDH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewTDH.Name = "listViewTDH";
-            this.listViewTDH.Size = new System.Drawing.Size(188, 105);
+            this.listViewTDH.Size = new System.Drawing.Size(249, 128);
             this.listViewTDH.TabIndex = 32;
             this.listViewTDH.UseCompatibleStateImageBehavior = false;
             this.listViewTDH.UseWaitCursor = true;
@@ -298,10 +296,10 @@ namespace QLBanLapTop
             this.listViewDHmax.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.listViewDHmax.ForeColor = System.Drawing.SystemColors.MenuText;
             this.listViewDHmax.HideSelection = false;
-            this.listViewDHmax.Location = new System.Drawing.Point(379, 226);
-            this.listViewDHmax.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewDHmax.Location = new System.Drawing.Point(728, 432);
+            this.listViewDHmax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewDHmax.Name = "listViewDHmax";
-            this.listViewDHmax.Size = new System.Drawing.Size(188, 105);
+            this.listViewDHmax.Size = new System.Drawing.Size(249, 128);
             this.listViewDHmax.TabIndex = 33;
             this.listViewDHmax.UseCompatibleStateImageBehavior = false;
             this.listViewDHmax.UseWaitCursor = true;
@@ -316,10 +314,9 @@ namespace QLBanLapTop
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.label4.Location = new System.Drawing.Point(20, 205);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(484, 390);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 21);
+            this.label4.Size = new System.Drawing.Size(203, 27);
             this.label4.TabIndex = 36;
             this.label4.Text = "Thông tin mua hàng";
             // 
@@ -338,28 +335,38 @@ namespace QLBanLapTop
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(52, 85);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(256, 203);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(459, 279);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Khách Hàng";
+            // 
+            // Kha
+            // 
+            this.Kha.AutoSize = true;
+            this.Kha.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Kha.Location = new System.Drawing.Point(464, 14);
+            this.Kha.Name = "Kha";
+            this.Kha.Size = new System.Drawing.Size(176, 35);
+            this.Kha.TabIndex = 38;
+            this.Kha.Text = "Khách Hàng";
             // 
             // KhachHangUControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Kha);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listViewDHmax);
             this.Controls.Add(this.listViewTDH);
             this.Controls.Add(this.listviewDHGN);
             this.Controls.Add(this.dgvKhachHang);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KhachHangUControl";
-            this.Size = new System.Drawing.Size(1041, 500);
+            this.Size = new System.Drawing.Size(1388, 615);
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -396,5 +403,7 @@ namespace QLBanLapTop
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         #endregion
+
+        private System.Windows.Forms.Label Kha;
     }
 }

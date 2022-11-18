@@ -236,18 +236,18 @@ namespace QLBanLapTop
             // 
             this.lbNameNV.AutoSize = true;
             this.lbNameNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNameNV.Location = new System.Drawing.Point(650, 234);
+            this.lbNameNV.Location = new System.Drawing.Point(714, 234);
             this.lbNameNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNameNV.Name = "lbNameNV";
-            this.lbNameNV.Size = new System.Drawing.Size(155, 27);
+            this.lbNameNV.Size = new System.Drawing.Size(30, 27);
             this.lbNameNV.TabIndex = 27;
-            this.lbNameNV.Text = "Tên nhân viên:";
+            this.lbNameNV.Text = "...";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(485, 234);
+            this.label7.Location = new System.Drawing.Point(549, 234);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 27);
@@ -258,7 +258,7 @@ namespace QLBanLapTop
             // 
             this.lbMaNV.AutoSize = true;
             this.lbMaNV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaNV.Location = new System.Drawing.Point(644, 174);
+            this.lbMaNV.Location = new System.Drawing.Point(708, 174);
             this.lbMaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaNV.Name = "lbMaNV";
             this.lbMaNV.Size = new System.Drawing.Size(48, 27);
@@ -269,7 +269,7 @@ namespace QLBanLapTop
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(485, 174);
+            this.label6.Location = new System.Drawing.Point(549, 174);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 27);

@@ -44,6 +44,14 @@ namespace QLBanLapTop
 
         private void frmManager_Load(object sender, EventArgs e)
         {
+            lblTen.Text = "Tên: " + frmLogin.nameEmp;
+            lblQuyen.Text = "Quyền: " + frmLogin.idRole;
+            lblNgay.Text = "Ngày: " + DateTime.Now.Date.ToString("dd/MM/yyyy");
+            
+            timer.Enabled = true;
+            timer.Start();
+            lblNgayGio.Text = DateTime.Now.ToLongTimeString();
+
             if (frmTaiKhoan.Permission())
             {
                 btnSanPham.Enabled = true;
@@ -117,17 +125,27 @@ namespace QLBanLapTop
 
         private void frmManager_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
+               
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lblNgayGio.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
             DialogResult r = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (r == DialogResult.Cancel)
-                e.Cancel = true;
+                return;
             else
             {
                 frmLogin frmLogin = new frmLogin();
                 this.Hide();
                 frmLogin.Show();
 
-            }    
-               
+            }
         }
     }
 }

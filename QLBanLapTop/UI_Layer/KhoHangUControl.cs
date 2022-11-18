@@ -61,16 +61,12 @@ namespace QLBanLapTop
 
             this.btnLuu.Enabled = true;
             this.panel1.Enabled = true;
-            this.btnThoat.Enabled = true;
 
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
 
             dgvNhapHang.Enabled = false;
             this.btnHuy.Enabled = true;
-
-
-
             this.txtMaMay.Focus();
         }
 
@@ -87,23 +83,12 @@ namespace QLBanLapTop
 
             this.btnLuu.Enabled = true;
             this.panel1.Enabled = true;
-            this.btnThoat.Enabled = true;
 
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
             this.btnHuy.Enabled = true;
 
             this.txtMaMay.Focus();
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            DialogResult tl = MessageBox.Show("Bạn có chắc muốn THOÁT ????",
-              "Thông báo",
-              MessageBoxButtons.YesNo,
-              MessageBoxIcon.Question);
-            if (tl == DialogResult.Yes)
-                this.Hide();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

@@ -192,11 +192,9 @@ namespace QLBanLapTop
                         cbLoaiTK.Enabled = false;
                         txtPassword.Enabled = false;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Thông tin không hợp lệ", "Thông báo",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message);
                     }
 
                 }
@@ -324,6 +322,11 @@ namespace QLBanLapTop
             lbNameNV.Text = cbTenNV.SelectedValue.ToString();
             btnCancel.Enabled = false;
             btnSave.Enabled = false;
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

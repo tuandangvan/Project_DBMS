@@ -140,6 +140,7 @@ namespace QLBanLapTop
             this.btnReload.TabIndex = 2;
             this.btnReload.Text = "Tải lại";
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnAdd
             // 
@@ -341,16 +342,15 @@ namespace QLBanLapTop
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tài khoản";
             // 
-            // frmTaiKhoan
+            // TaiKhoanUControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 552);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dgvTaiKhoan);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmTaiKhoan";
-            this.Text = "frmTaiKhoan";
+            this.Name = "TaiKhoanUControl";
+            this.Size = new System.Drawing.Size(987, 552);
             this.Load += new System.EventHandler(this.frmTaiKhoan_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();

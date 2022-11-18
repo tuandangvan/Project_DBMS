@@ -38,7 +38,6 @@ namespace QLBanLapTop
             {
                 try
                 {
-                    //double a = double.Parse(dgvSanPham.Rows[r].Cells[3].Value.ToString());
                     this.txtMaSP.Text =
                     dgvSanPham.Rows[r].Cells[0].Value.ToString().TrimEnd();
                     this.cbxTenHang.SelectedValue =
@@ -71,8 +70,15 @@ namespace QLBanLapTop
                     dgvSanPham.Rows[r].Cells[14].Value.ToString().TrimEnd();
                     this.cbxBoNho.Text =
                     dgvSanPham.Rows[r].Cells[15].Value.ToString().TrimEnd();
-                    this.picHinhAnh.Image =
-                    byteArrayToImage((byte[])dgvSanPham.Rows[r].Cells[16].Value);
+                    if (dgvSanPham.Rows[r].Cells[16].Value.ToString() != "")
+                    {
+                        this.picHinhAnh.Image =
+                        byteArrayToImage((byte[])dgvSanPham.Rows[r].Cells[16].Value);
+                    }
+                    else
+                    {
+                        this.picHinhAnh.Image = null;
+                    }    
                     this.cbxHeDieuHanh.Text =
                     dgvSanPham.Rows[r].Cells[17].Value.ToString().TrimEnd();
                 }
@@ -424,8 +430,8 @@ namespace QLBanLapTop
                             }
                             else
                             {
-                                //MessageBox.Show("Trùng mã sản phẩm", "Thông báo", MessageBoxButtons.OK);
-                                //return;
+                                MessageBox.Show("Trùng mã sản phẩm", "Thông báo", MessageBoxButtons.OK);
+                                return;
                             }
                         }
                         else return;

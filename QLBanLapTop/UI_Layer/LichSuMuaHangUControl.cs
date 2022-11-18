@@ -59,11 +59,17 @@ namespace QLBanLapTop
             this.txtBestSeller.Enabled = true;
             SqlCommand cmd = new SqlCommand("SELECT * from dbo.fnc_BestSeller()", db.conn);
 
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            this.txtBestSeller.Text = dt.Rows[0][0].ToString();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                this.txtBestSeller.Text = dt.Rows[0][0].ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnTopSaler_Click(object sender, EventArgs e)
@@ -112,6 +118,7 @@ namespace QLBanLapTop
         private void frmLichSuMuaHang_Load(object sender, EventArgs e)
         {
             LoadData();
+            this.panel2.Enabled = false;
         }
     }
 }
