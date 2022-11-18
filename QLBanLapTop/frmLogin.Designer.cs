@@ -53,9 +53,10 @@ namespace QLBanLapTop
             this.panel1.Controls.Add(this.picExit);
             this.panel1.Controls.Add(this.picB1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(28, 14);
+            this.panel1.Location = new System.Drawing.Point(21, 11);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(613, 80);
+            this.panel1.Size = new System.Drawing.Size(460, 65);
             this.panel1.TabIndex = 18;
             // 
             // picExit
@@ -63,9 +64,10 @@ namespace QLBanLapTop
             this.picExit.BackColor = System.Drawing.Color.Transparent;
             this.picExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(550, 10);
+            this.picExit.Location = new System.Drawing.Point(412, 8);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
             this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(51, 50);
+            this.picExit.Size = new System.Drawing.Size(38, 41);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 11;
             this.picExit.TabStop = false;
@@ -77,9 +79,10 @@ namespace QLBanLapTop
             this.picB1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picB1.Image = ((System.Drawing.Image)(resources.GetObject("picB1.Image")));
-            this.picB1.Location = new System.Drawing.Point(3, 3);
+            this.picB1.Location = new System.Drawing.Point(2, 2);
+            this.picB1.Margin = new System.Windows.Forms.Padding(2);
             this.picB1.Name = "picB1";
-            this.picB1.Size = new System.Drawing.Size(92, 71);
+            this.picB1.Size = new System.Drawing.Size(70, 58);
             this.picB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picB1.TabIndex = 10;
             this.picB1.TabStop = false;
@@ -89,9 +92,10 @@ namespace QLBanLapTop
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(151, 19);
+            this.label1.Location = new System.Drawing.Point(113, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 38);
+            this.label1.Size = new System.Drawing.Size(320, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản lý Cửa hàng Laptop";
             // 
@@ -103,10 +107,9 @@ namespace QLBanLapTop
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Blue;
-            this.btnLogin.Location = new System.Drawing.Point(267, 291);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(200, 236);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(133, 47);
+            this.btnLogin.Size = new System.Drawing.Size(100, 38);
             this.btnLogin.TabIndex = 17;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -115,10 +118,9 @@ namespace QLBanLapTop
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(255, 236);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Location = new System.Drawing.Point(191, 192);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(188, 35);
+            this.txtPassword.Size = new System.Drawing.Size(142, 29);
             this.txtPassword.TabIndex = 16;
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
@@ -126,12 +128,12 @@ namespace QLBanLapTop
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(255, 169);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Location = new System.Drawing.Point(191, 137);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(188, 35);
+            this.txtUsername.Size = new System.Drawing.Size(142, 29);
             this.txtUsername.TabIndex = 15;
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // btnHienPass
             // 
@@ -141,9 +143,10 @@ namespace QLBanLapTop
             this.btnHienPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHienPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHienPass.ForeColor = System.Drawing.Color.Transparent;
-            this.btnHienPass.Location = new System.Drawing.Point(450, 236);
+            this.btnHienPass.Location = new System.Drawing.Point(338, 192);
+            this.btnHienPass.Margin = new System.Windows.Forms.Padding(2);
             this.btnHienPass.Name = "btnHienPass";
-            this.btnHienPass.Size = new System.Drawing.Size(34, 31);
+            this.btnHienPass.Size = new System.Drawing.Size(26, 25);
             this.btnHienPass.TabIndex = 21;
             this.btnHienPass.UseVisualStyleBackColor = false;
             this.btnHienPass.Click += new System.EventHandler(this.btnHienPass_Click);
@@ -153,9 +156,10 @@ namespace QLBanLapTop
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(191, 226);
+            this.pictureBox2.Location = new System.Drawing.Point(143, 184);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 46);
+            this.pictureBox2.Size = new System.Drawing.Size(43, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
@@ -165,18 +169,20 @@ namespace QLBanLapTop
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(191, 159);
+            this.pictureBox1.Location = new System.Drawing.Point(143, 129);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 48);
+            this.pictureBox1.Size = new System.Drawing.Size(43, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnLogin;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 363);
+            this.ClientSize = new System.Drawing.Size(492, 295);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogin);
@@ -185,7 +191,8 @@ namespace QLBanLapTop
             this.Controls.Add(this.btnHienPass);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";

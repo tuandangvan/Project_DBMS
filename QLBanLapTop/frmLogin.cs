@@ -21,18 +21,15 @@ namespace QLBanLapTop
         {
             InitializeComponent();
         }
-
         private void picExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool check = Login();
-            frmMenu frm = new frmMenu();
-            frm.Show();
-            this.Hide();
+            
+            
             try
             {
 
@@ -40,21 +37,20 @@ namespace QLBanLapTop
                 {
                     MessageBox.Show("Đăng nhập thành công!!!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //frmMuaHang.Show();
-                    //frmTaiKhoan.Show();                   
-                    //this.Dispose();   fix giùm t cái lỗi này, đkm nó tắt form login cái nó tắt hết
-                    //frmMenu.Show();
+                    frmManager frm = new frmManager();
+                    frm.Show();
+                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!!!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!!!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ResetText();
             }
         }
         private bool Login()
@@ -94,10 +90,7 @@ namespace QLBanLapTop
 
         private void txtUsername_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "Tên Đăng Nhập")
-            {
-                txtUsername.ResetText();
-            }
+            txtUsername.ResetText();       
         }
 
         private void txtPassword_Click(object sender, EventArgs e)
@@ -129,5 +122,13 @@ namespace QLBanLapTop
                 txtPassword.PasswordChar = '✽';
             }
         }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+                this.txtUsername.Text = "Tên Đăng Nhập";
+        }
+
+ 
     }
 }

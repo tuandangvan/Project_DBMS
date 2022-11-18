@@ -12,6 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace QLBanLapTop
 {
+ 
     public partial class frmKhachHang : Form
     {
         string strSQL = "";
@@ -26,7 +27,7 @@ namespace QLBanLapTop
 
         SqlDataAdapter daQLKH = null;
         DataTable dtQLKH = null;
-
+        string sdt = "";
 
 
         void LoadData()
@@ -43,9 +44,34 @@ namespace QLBanLapTop
             dgvKhachHang.DataSource = dtQLKH;
 
         }
-        private void FromKhachHang_Load(object sender, EventArgs e)
+
+        void loadlistview()
+        {
+
+            SqlDataAdapter daLV = null;
+            DataTable dtLV = null;
+            if (db.conn.State == ConnectionState.Open)
+                db.conn.Close();
+            daLV = new SqlDataAdapter("SELECT max (NgayMuaHang) as NgayMuaHang, COUNT (SoDTKH) as countDH, SUM (GiaBan) as sumDH, MAX (GiaBan) as maxDH FROM LichSuMuaHang, SanPham where LichSuMuaHang.SoDTKH=N'" + sdt + "' and LichSuMuaHang.MaSP=SanPham.MaSP", db.conn);
+            dtLV = new DataTable();
+            daLV.Fill(dtLV);
+            int i = 0;
+            foreach (DataRow dr in dtLV.Rows)
+            {
+                listviewDHGN.Items.Add("Lần mua gần nhất:");
+                listviewDHGN.Items.Add(dr["NgayMuaHang"].ToString());
+                listViewDHmax.Items.Add("Đơn hàng lớn nhất:");
+                listViewDHmax.Items.Add(dr["maxDH"].ToString());
+                listViewTDH.Items.Add("Số đơn: " + dr["countDH"].ToString());
+                listViewTDH.Items.Add("Tổng:");
+                listViewTDH.Items.Add(dr["sumDH"].ToString());
+                i++;
+            }
+        }
+        private void frmKhachHang_Load(object sender, EventArgs e)
         {
             LoadData();
+
         }
 
 
@@ -53,28 +79,23 @@ namespace QLBanLapTop
         {
             if (txtSDT.Text.Trim() != "" && txtHoTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "")
             {
-                if (db.Check(txtSDT.Text, "KhachHang", "SoDTKH") == false)
-                {
-                    strSQL = "proc_addKhachHang";
-                    parameters = new List<SqlParameter>();
+                strSQL = "proc_addKhachHang";
+                parameters = new List<SqlParameter>();
 
-                    parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@TenKH", txtHoTen.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@TenKH", txtHoTen.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@LoaiKH", 1);
-                    parameters.Add(parameter);
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Thêm khách hàng thành công");
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("Khách hàng đã tồn tại");
+                parameter = new SqlParameter("@LoaiKH", 1);
+                parameters.Add(parameter);
+                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                LoadData();
+
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -82,76 +103,50 @@ namespace QLBanLapTop
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            listviewDHGN.Clear();
+            listViewDHmax.Clear();
+            listViewTDH.Clear();
             int r = dgvKhachHang.CurrentCell.RowIndex;
 
 
             if (r >= 0)
             {
                 /*int r = dgvSanPham.CurrentCell.RowIndex;*/
-                this.txtSDT.Text = dgvKhachHang.Rows[r].Cells[0].Value.ToString();
-                this.txtHoTen.Text = dgvKhachHang.Rows[r].Cells[1].Value.ToString();
-                this.txtDiaChi.Text = dgvKhachHang.Rows[r].Cells[2].Value.ToString();
-            }
-        }
-
-        private void btnDelet_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show("Bạn có muốn xóa khách hàng" + " " + txtSDT.Text, "Thông báo",
-                                 MessageBoxButtons.YesNo);
-            if (check == DialogResult.Yes)
-            {
-                if (db.Check(txtSDT.Text, "KhachHang", "SoDTKH") == true)
-                {
-                    strSQL = "proc_DeleteKhachHang";
-                    parameters = new List<SqlParameter>();
-
-                    parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                    parameters.Add(parameter);
-
-                    //String sqlString = "exec proc_updateAccount @idAccount = " + idAccount + ", @nameAccount = '" + nameAccount + "', @password = '" + password + "', @typeOfAcc = " + typeOfAcc + ", @idEmployee = " + idEmployee;
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    LoadData();
-                    MessageBox.Show("Xóa thành công");
-                }
-                else
-                    MessageBox.Show("Khách hàng không tồn tại");
-
+                sdt = (dgvKhachHang.Rows[r].Cells[0].Value.ToString()).TrimEnd();
+                this.txtSDT.Text = (dgvKhachHang.Rows[r].Cells[0].Value.ToString()).TrimEnd();
+                this.txtHoTen.Text = dgvKhachHang.Rows[r].Cells[1].Value.ToString().TrimEnd();
+                this.txtDiaChi.Text = dgvKhachHang.Rows[r].Cells[2].Value.ToString().TrimEnd();
 
             }
-
+            loadlistview();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int r = dgvKhachHang.CurrentCell.RowIndex;
 
-            if (txtSDT.Text.Trim() != "" && txtHoTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "")
+            if (sdt != "" && txtHoTen.Text.Trim() != "" && txtDiaChi.Text.Trim() != "")
             {
-                DialogResult check = MessageBox.Show("Bạn có muốn Khách hàng" + " " + txtSDT.Text, "Thông báo",
+                DialogResult check = MessageBox.Show("Bạn có muốn Khách hàng" + " " + sdt, "Thông báo",
                                  MessageBoxButtons.YesNo);
                 if (check == DialogResult.No)
                     return;
-                if (db.Check(txtSDT.Text, "KhachHang", "SoDTKH") == true)
-                {
 
-                    strSQL = "proc_updateKhachHang";
-                    parameters = new List<SqlParameter>();
+                strSQL = "proc_updateKhachHang";
+                parameters = new List<SqlParameter>();
 
-                    parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@SoDTKH", sdt);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@TenKH", txtHoTen.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@TenKH", txtHoTen.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
+                parameters.Add(parameter);
 
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Sửa đổi thông tin khách hàng thành công");
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("Khách hàng không tồn tại");
+                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                LoadData();
 
             }
             else
@@ -183,9 +178,19 @@ namespace QLBanLapTop
             this.txtDiaChi.Text = "";
         }
 
-        private void frmKhachHang_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            strSQL = "proc_updateLoaiKhachHang";
+            parameters = new List<SqlParameter>();
+
+            parameter = new SqlParameter("@SoDTKH", txtSDT.Text);
+            parameters.Add(parameter);
+
+            db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
             LoadData();
         }
+
+ 
     }
+
 }

@@ -44,35 +44,24 @@ namespace QLBanLapTop
         {
             if (txtMaHang.Text.Trim() != "" && txtTenHang.Text.Trim() != "" && txtNoiSX.Text.Trim() != "" && txtWebsite.Text.Trim() != "")
             {
-                //if (db.Check(txtMaHang.Text, "HangSX", "MaHang") == false && db.Check(txtTenHang.Text, "HangSX", "TenHang") == false)
-                {
-                    strSQL = "proc_addHangSX";
-                    parameters = new List<SqlParameter>();
+                strSQL = "proc_addHangSX";
+                List<SqlParameter> parameters = new List<SqlParameter>();
 
-                    parameter = new SqlParameter("@MaHang", txtMaHang.Text);
-                    parameters.Add(parameter);
+                parameters.Add(new SqlParameter("@MaHang", txtMaHang.Text));
+                parameters.Add(new SqlParameter("@NoiSX", txtNoiSX.Text));
+                parameters.Add(new SqlParameter("@TenHang", txtTenHang.Text));
+                parameters.Add(new SqlParameter("@Website", txtWebsite.Text));
 
-                    parameter = new SqlParameter("@NoiSX", txtNoiSX.Text);
-                    parameters.Add(parameter);
-
-                    parameter = new SqlParameter("@TenHang", txtTenHang.Text);
-                    parameters.Add(parameter);
-
-                    parameter = new SqlParameter("@Website", txtWebsite.Text);
-                    parameters.Add(parameter);
-
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Thêm hãng sản xuất thành công");
-                    LoadData();
-                }
-               // else
-                 //   MessageBox.Show("Hãng Sản Xuất đã tồn tại");
-
-
-
+                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                LoadData();
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+        }
+
+        private void frmNhaSanXuat_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void dgvHSX_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,35 +71,15 @@ namespace QLBanLapTop
             if (r >= 0)
             {
                 /*int r = dgvSanPham.CurrentCell.RowIndex;*/
-                this.txtMaHang.Text = dgvHSX.Rows[r].Cells[0].Value.ToString();
-                this.txtTenHang.Text = dgvHSX.Rows[r].Cells[2].Value.ToString();
-                this.txtNoiSX.Text = dgvHSX.Rows[r].Cells[1].Value.ToString();
-                this.txtWebsite.Text = dgvHSX.Rows[r].Cells[3].Value.ToString();
-            }
-        }
-
-        private void btnDelet_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show("Bạn có muốn xóa Hãng Sản Xuất" + " " + txtMaHang.Text, "Thông báo",
-                                 MessageBoxButtons.YesNo);
-            if (check == DialogResult.Yes)
-            {
-                if (db.Check(txtMaHang.Text, "HangSX", "MaHang") == true)
-                {
-                    strSQL = "proc_DeleteHangSX";
-                    parameters = new List<SqlParameter>();
-                    parameter = new SqlParameter("@MaHang", txtMaHang.Text);
-                    parameters.Add(parameter);
-
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    LoadData();
-                    MessageBox.Show("Xóa thành công");
-                }
-                else
-                    MessageBox.Show("Hãng Sản Xuất không tồn tại");
+                this.txtMaHang.Text = dgvHSX.Rows[r].Cells[0].Value.ToString().TrimEnd();
+                this.txtTenHang.Text = dgvHSX.Rows[r].Cells[2].Value.ToString().TrimEnd();
+                this.txtNoiSX.Text = dgvHSX.Rows[r].Cells[1].Value.ToString().TrimEnd();
+                this.txtWebsite.Text = dgvHSX.Rows[r].Cells[3].Value.ToString().TrimEnd();
 
             }
         }
+
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -120,29 +89,18 @@ namespace QLBanLapTop
                                  MessageBoxButtons.YesNo);
                 if (check == DialogResult.No)
                     return;
-                if (db.Check(txtMaHang.Text, "HangSX", "MaHang") == true )
-                {
-                    strSQL = "proc_updateHangSX";
-                    parameters = new List<SqlParameter>();
+                strSQL = "proc_updateHangSX";
+                List<SqlParameter> parameters = new List<SqlParameter>();
 
-                    parameter = new SqlParameter("@MaHang", txtMaHang.Text);
-                    parameters.Add(parameter);
+                parameters.Add(new SqlParameter("@MaHang", txtMaHang.Text));
+                parameters.Add(new SqlParameter("@NoiSX", txtNoiSX.Text));
+                parameters.Add(new SqlParameter("@TenHang", txtTenHang.Text));
+                parameters.Add(new SqlParameter("@Website", txtWebsite.Text));
 
-                    parameter = new SqlParameter("@NoiSX", txtNoiSX.Text);
-                    parameters.Add(parameter);
+                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                LoadData();
 
-                    parameter = new SqlParameter("@TenHang", txtTenHang.Text);
-                    parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@Website", txtWebsite.Text);
-                    parameters.Add(parameter);
-
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Sửa thành công");
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("Hãng sản xuất không tồn tại");
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -172,9 +130,6 @@ namespace QLBanLapTop
             this.txtWebsite.Text = "";
         }
 
-        private void frmNhaSanXuat_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
+
     }
 }

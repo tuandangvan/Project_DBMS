@@ -35,6 +35,9 @@ namespace QLBanLapTop
             this.btnSua = new System.Windows.Forms.Button();
             this.btnNhapHang = new System.Windows.Forms.Button();
             this.dgvNhapHang = new System.Windows.Forms.DataGridView();
+            this.MaMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dtpChonNgay = new System.Windows.Forms.DateTimePicker();
@@ -48,9 +51,6 @@ namespace QLBanLapTop
             this.label1 = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
             this.lblHienNgay = new System.Windows.Forms.Label();
-            this.MaMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +136,30 @@ namespace QLBanLapTop
             this.dgvNhapHang.Size = new System.Drawing.Size(543, 207);
             this.dgvNhapHang.TabIndex = 22;
             this.dgvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapHang_CellClick);
+            // 
+            // MaMay
+            // 
+            this.MaMay.DataPropertyName = "MaMay";
+            this.MaMay.HeaderText = "Mã Máy";
+            this.MaMay.MinimumWidth = 8;
+            this.MaMay.Name = "MaMay";
+            this.MaMay.Width = 150;
+            // 
+            // MaSanPham
+            // 
+            this.MaSanPham.DataPropertyName = "MaSP";
+            this.MaSanPham.HeaderText = "Mã Sản Phẩm";
+            this.MaSanPham.MinimumWidth = 8;
+            this.MaSanPham.Name = "MaSanPham";
+            this.MaSanPham.Width = 150;
+            // 
+            // NgayNhap
+            // 
+            this.NgayNhap.DataPropertyName = "NgayNhap";
+            this.NgayNhap.HeaderText = "Ngày Nhập";
+            this.NgayNhap.MinimumWidth = 8;
+            this.NgayNhap.Name = "NgayNhap";
+            this.NgayNhap.Width = 180;
             // 
             // button1
             // 
@@ -273,30 +297,6 @@ namespace QLBanLapTop
             this.lblHienNgay.Size = new System.Drawing.Size(0, 22);
             this.lblHienNgay.TabIndex = 4;
             // 
-            // MaMay
-            // 
-            this.MaMay.DataPropertyName = "MaMay";
-            this.MaMay.HeaderText = "Mã Máy";
-            this.MaMay.MinimumWidth = 8;
-            this.MaMay.Name = "MaMay";
-            this.MaMay.Width = 150;
-            // 
-            // MaSanPham
-            // 
-            this.MaSanPham.DataPropertyName = "MaSP";
-            this.MaSanPham.HeaderText = "Mã Sản Phẩm";
-            this.MaSanPham.MinimumWidth = 8;
-            this.MaSanPham.Name = "MaSanPham";
-            this.MaSanPham.Width = 150;
-            // 
-            // NgayNhap
-            // 
-            this.NgayNhap.DataPropertyName = "NgayNhap";
-            this.NgayNhap.HeaderText = "Ngày Nhập";
-            this.NgayNhap.MinimumWidth = 8;
-            this.NgayNhap.Name = "NgayNhap";
-            this.NgayNhap.Width = 180;
-            // 
             // frmNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,7 +316,7 @@ namespace QLBanLapTop
             this.Controls.Add(this.dgvNhapHang);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNhapHang";

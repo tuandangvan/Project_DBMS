@@ -43,12 +43,12 @@ namespace QLBanLapTop
             this.btnTimMaMay = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblNgayMuaHang = new System.Windows.Forms.Label();
             this.lblNgayBaoHanh = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dgvBaoHanh = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,7 +123,6 @@ namespace QLBanLapTop
             this.groupBox1.Size = new System.Drawing.Size(387, 390);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblSDTKH
             // 
@@ -219,16 +218,6 @@ namespace QLBanLapTop
             this.txtGhiChu.TabIndex = 7;
             this.txtGhiChu.Text = "";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên NV";
-            // 
             // lblNgayMuaHang
             // 
             this.lblNgayMuaHang.AutoSize = true;
@@ -276,6 +265,16 @@ namespace QLBanLapTop
             this.label7.Size = new System.Drawing.Size(62, 19);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ghi chú";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên NV";
             // 
             // dgvBaoHanh
             // 

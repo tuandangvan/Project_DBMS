@@ -101,6 +101,7 @@ namespace QLBanLapTop
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            Connection db = new Connection();
             try
             {
                 DialogResult tl = MessageBox.Show("Bạn có muốn thanh toán hóa đơn không", "Thông báo",
@@ -108,21 +109,38 @@ namespace QLBanLapTop
                     MessageBoxIcon.Question);
                 if (tl == DialogResult.Yes)
                 {
-                    Connection db = new Connection();
-                    db.conn.Open();
+                    
 
 
                     for (int i = 0; i < dgvGioHang.RowCount; i++)
                     {
-                        string sql_del_KH = "Delete Khohang where MaMay = '" + dgvGioHang.Rows[i].Cells[2].Value.ToString() + "'";
-                        SqlCommand cmd_del_KH = new SqlCommand(sql_del_KH, db.conn);
-                        cmd_del_KH.ExecuteNonQuery();
+                        try
+                        {
+                            string sql_addLSMH = "pro_insLichSuMuaHang";
+                            List<SqlParameter> parameters = new List<SqlParameter>();
+
+                            parameters.Add(new SqlParameter("@MaMay", dgvGioHang.Rows[i].Cells[2].Value.ToString()));
+
+                            db.ExecuteProcedure(sql_addLSMH, CommandType.StoredProcedure, parameters);
+                            db.conn.Open();
+                            string sql_delMaMay = "proc_delMaMayKhoHang";
+                            List<SqlParameter> param = new List<SqlParameter>();
+                            param.Add(new SqlParameter("@MaMay", dgvGioHang.Rows[i].Cells[2].Value.ToString()));
+                            db.ExecuteProcedure(sql_delMaMay, CommandType.StoredProcedure, param);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Không làm đc r", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        
                     }
+
+                    db.conn.Open();
                     string sql_del_DH = "Delete From Donhang";
                     SqlCommand cmd_del_DH = new SqlCommand(sql_del_DH, db.conn);
                     cmd_del_DH.ExecuteNonQuery();
 
-                    db.conn.Close();
                     MessageBox.Show("Thanh toán thành công", "Thông báo",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
@@ -130,18 +148,18 @@ namespace QLBanLapTop
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không thể thanh toán!! Vui lòng kiểm tra lại", "Thông báo",
-                   MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.conn.Close();
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmMuaHang frmMuaHang = new frmMuaHang();
-            frmMuaHang.Show();
             this.Hide();
         }
 

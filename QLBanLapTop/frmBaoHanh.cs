@@ -21,9 +21,9 @@ namespace QLBanLapTop
             InitializeComponent();
         }
         Connection db = new Connection();
-        
-        SqlDataAdapter daLichSuBaoHanh, daNhanVien, daTimMay;
-        DataTable dtLichSuBaoHanh,dtNhanVien, dtTimMay;
+
+        SqlDataAdapter daLichSuBaoHanh, daTimMay;
+        DataTable dtLichSuBaoHanh, dtTimMay;
 
         private void btnBaoHanh_Click(object sender, EventArgs e)
         {
@@ -41,14 +41,20 @@ namespace QLBanLapTop
                     parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
                     parameters.Add(new SqlParameter("@SoDTKH", lblSDTKH.Text));
                     parameters.Add(new SqlParameter("@NgayMuaHang", lblNgayMuaHang.Text));
-                    parameters.Add(new SqlParameter("@NgayBaoHanh", DateTime.Now.Date.ToString()));
+                    parameters.Add(new SqlParameter("@NgayBaoHanh", lblNgayBaoHanh.Text));
                     parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
 
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    if (db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters))
+                    {
+                        MessageBox.Show("Bảo hành thành công!");
+                    }
                     LoadData();
                 }
-            } catch (Exception ex)
-            { }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dgvBaoHanh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -61,21 +67,38 @@ namespace QLBanLapTop
                 this.txtMaMay.Text = dgvBaoHanh.Rows[r].Cells[2].Value.ToString();
                 this.lblSDTKH.Text = dgvBaoHanh.Rows[r].Cells[3].Value.ToString();
                 this.lblMaSP.Text = dgvBaoHanh.Rows[r].Cells[1].Value.ToString();
-                this.lblNgayMuaHang.Text = dgvBaoHanh.Rows[r].Cells[4].Value.ToString();
-                this.lblNgayBaoHanh.Text = dgvBaoHanh.Rows[r].Cells[5].Value.ToString();
+                this.lblNgayMuaHang.Text = DateTime.Parse(dgvBaoHanh.Rows[r].Cells[4].Value.ToString()).ToString("MM/dd/yyyy");
+                this.lblNgayBaoHanh.Text = DateTime.Parse(dgvBaoHanh.Rows[r].Cells[5].Value.ToString()).ToString("MM/dd/yyyy");
                 this.txtGhiChu.Text = dgvBaoHanh.Rows[r].Cells[6].Value.ToString();
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            btnBaoHanh.Enabled = false;
-            btnHuy.Enabled = true;
+
+            try
+            {
+                DialogResult rs = MessageBox.Show("Bạn có chắc muốn sửa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (rs == DialogResult.Yes)
+                {
+                    string strSQL = "proc_updateBaoHanh";
+                    List<SqlParameter> parameters = new List<SqlParameter>();
+
+                    parameters.Add(new SqlParameter("@MaSP", lblMaSP.Text));
+                    parameters.Add(new SqlParameter("@SoDTKH", lblSDTKH.Text));
+                    parameters.Add(new SqlParameter("@NgayMuaHang", lblNgayMuaHang.Text));
+                    parameters.Add(new SqlParameter("@NgayBaoHanh", DateTime.Now.Date.ToString("MM/dd/yyyy")));
+                    parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
+                    parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
+
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
+                }
+            }
+            catch (Exception ex)
+            { }
 
         }
 
@@ -96,7 +119,7 @@ namespace QLBanLapTop
                 lblMaSP.Text = dtTimMay.Rows[0][1].ToString();
 
                 DateTime ngaymua = (DateTime)dtTimMay.Rows[0][2];
-                lblNgayMuaHang.Text = ngaymua.Date.ToString();
+                lblNgayMuaHang.Text = ngaymua.Date.ToString("MM/dd/yyyy");
 
                 db.conn.Close();
 
@@ -121,7 +144,7 @@ namespace QLBanLapTop
                 if (db.conn.State == ConnectionState.Open)
                     db.conn.Close();
                 db.conn.Open();
-                daLichSuBaoHanh = new SqlDataAdapter("Select * From View_LichSuBaoHanh", db.conn);
+                daLichSuBaoHanh = new SqlDataAdapter("Select * From LichSuBaoHanh", db.conn);
 
                 //doi du lieu
                 dtLichSuBaoHanh = new DataTable();
@@ -130,12 +153,12 @@ namespace QLBanLapTop
 
 
                 db.conn.Close();
-                lblNgayBaoHanh.Text = DateTime.Today.ToString();
+                lblNgayBaoHanh.Text = DateTime.Today.ToString("MM/dd/yyyy");
 
             }
             catch (Exception ex)
             {
-                
+
             }
         }
     }

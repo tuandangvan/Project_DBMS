@@ -48,9 +48,6 @@ namespace QLBanLapTop
             da.Fill(dt);
             db.conn.Close();
             dgvTaiKhoan.DataSource = dt;
-            cbLoaiTK.Items.Add("Quản lý");
-            cbLoaiTK.Items.Add("Nhân viên");
-
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -65,6 +62,11 @@ namespace QLBanLapTop
                 btnCancel.Enabled = true;
                 btnSave.Enabled = true;
                 isAdd = true;
+                isEdit = false;
+                txtIdAcc.Enabled = true;
+                txtUserName.Enabled = true;
+                cbLoaiTK.Enabled = true;
+                cbTenNV.Enabled = true;
             }
             else
             {
@@ -78,6 +80,7 @@ namespace QLBanLapTop
             groupBox1.Enabled = true;
             txtIdAcc.Enabled = false;
             txtUserName.Enabled = false;
+            txtPassword.Enabled = true;
             cbLoaiTK.Enabled = false;
             cbTenNV.Enabled = false;
             btnAdd.Enabled = false;
@@ -86,6 +89,7 @@ namespace QLBanLapTop
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
             isEdit = true;
+            isAdd = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -177,6 +181,16 @@ namespace QLBanLapTop
                             MessageBoxIcon.Information);
                         resetText();
                         LoadData();
+                        btnAdd.Enabled = true;
+                        btnDelete.Enabled = true;
+                        btnEdit.Enabled = true;
+                        btnCancel.Enabled = false;
+                        btnSave.Enabled = false;
+                        txtIdAcc.Enabled = false;
+                        txtUserName.Enabled = false;
+                        cbTenNV.Enabled = false;
+                        cbLoaiTK.Enabled = false;
+                        txtPassword.Enabled = false;
                     }
                     catch (Exception)
                     {
@@ -210,10 +224,16 @@ namespace QLBanLapTop
                             MessageBoxIcon.Information);
                         resetText();
                         LoadData();
-                        btnSave.Enabled = false;
                         btnAdd.Enabled = true;
                         btnDelete.Enabled = true;
                         btnEdit.Enabled = true;
+                        btnCancel.Enabled = false;
+                        btnSave.Enabled = false;
+                        txtIdAcc.Enabled = false;
+                        txtUserName.Enabled = false;
+                        cbTenNV.Enabled = false;
+                        cbLoaiTK.Enabled = false;
+                        txtPassword.Enabled = false;
                     }
                     catch (Exception)
                     {
@@ -297,9 +317,13 @@ namespace QLBanLapTop
 
         private void frmTaiKhoan_Load(object sender, EventArgs e)
         {
+            cbLoaiTK.Items.Add("Quản lý");
+            cbLoaiTK.Items.Add("Nhân viên");
             LoadData();
             BindCbTenNV();
             lbNameNV.Text = cbTenNV.SelectedValue.ToString();
+            btnCancel.Enabled = false;
+            btnSave.Enabled = false;
         }
     }
 }

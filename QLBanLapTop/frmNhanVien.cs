@@ -70,45 +70,38 @@ namespace QLBanLapTop
                 && txtKinhNghiem.Text.Trim() != "" && txtLuong.Text.Trim() != ""
                 )
             {
-                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == false && db.Check(txtSDT.Text, "NhanVien", "SoDTNV") == false)
-                {
-                    strSQL = "proc_addNhanVien";
-                    parameters = new List<SqlParameter>();
+                strSQL = "proc_addNhanVien";
+                parameters = new List<SqlParameter>();
 
-                    parameter = new SqlParameter("@MaNV", txtMNV.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@MaNV", txtMNV.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@TenNV", txtHoTen.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@TenNV", txtHoTen.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@DiaChi", txtDiaChi.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@SoDTNV", txtSDT.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@SoDTNV", txtSDT.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@MaPB", cbbPB.SelectedValue);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@MaPB", cbbPB.SelectedValue);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@Luong", txtLuong.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@Luong", txtLuong.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@KinhNghiem", txtKinhNghiem.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@KinhNghiem", txtKinhNghiem.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@ChucVu", cbbChucVu.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@ChucVu", cbbChucVu.Text);
+                parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@CaLam", txtCaLam.Text);
-                    parameters.Add(parameter);
+                parameter = new SqlParameter("@CaLam", txtCaLam.Text);
+                parameters.Add(parameter);
 
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Thêm nhân viên thành công");
-                    LoadData();
-                }    
-                else
-                    MessageBox.Show("Nhân viên đã tồn tại");
-
+                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                LoadData();
 
             }
             else
@@ -176,45 +169,19 @@ namespace QLBanLapTop
             if (r >= 0)
             {
                 /*int r = dgvSanPham.CurrentCell.RowIndex;*/
-                this.txtMNV.Text = dgvNhanVien.Rows[r].Cells[0].Value.ToString();
-                this.txtHoTen.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
-                this.txtCaLam.Text = dgvNhanVien.Rows[r].Cells[8].Value.ToString();
-                this.txtKinhNghiem.Text = dgvNhanVien.Rows[r].Cells[6].Value.ToString();
-                this.txtLuong.Text = dgvNhanVien.Rows[r].Cells[5].Value.ToString();
-                this.txtSDT.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString();
-                this.txtDiaChi.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString();
+                this.txtMNV.Text = dgvNhanVien.Rows[r].Cells[0].Value.ToString().TrimEnd();
+                this.txtHoTen.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString().TrimEnd();
+                this.txtCaLam.Text = dgvNhanVien.Rows[r].Cells[8].Value.ToString().TrimEnd();
+                this.txtKinhNghiem.Text = dgvNhanVien.Rows[r].Cells[6].Value.ToString().TrimEnd();
+                this.txtLuong.Text = dgvNhanVien.Rows[r].Cells[5].Value.ToString().TrimEnd();
+                this.txtSDT.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString().TrimEnd();
+                this.txtDiaChi.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString().TrimEnd();
 
                 this.cbbPB.SelectedValue = dgvNhanVien.Rows[r].Cells[1].Value.ToString();
                 this.cbbChucVu.Text = dgvNhanVien.Rows[r].Cells[7].Value.ToString();
 
             }
         }
-
-        private void btnDelet_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show("Bạn có muốn xóa Nhân Viên" + " " + txtMNV.Text, "Thông báo",
-                                 MessageBoxButtons.YesNo);
-            if (check == DialogResult.Yes)
-            {
-                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == true)
-                {
-                    strSQL = "proc_DeleteNhanVien";
-                    parameters = new List<SqlParameter>();
-
-                    parameter = new SqlParameter("@MaNV", txtMNV.Text);
-                    parameters.Add(parameter);
-
-                    //String sqlString = "exec proc_updateAccount @idAccount = " + idAccount + ", @nameAccount = '" + nameAccount + "', @password = '" + password + "', @typeOfAcc = " + typeOfAcc + ", @idEmployee = " + idEmployee;
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Xóa thành công");
-                    LoadData();
-                }
-                else
-                    MessageBox.Show("Nhân viên không tồn tại");
-
-            }
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text != "")
@@ -228,6 +195,11 @@ namespace QLBanLapTop
             }
             else
                 LoadData();
+        }
+
+        private void frmNhanVien_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -244,9 +216,6 @@ namespace QLBanLapTop
             this.cbbChucVu.Text = "";
         }
 
-        private void frmNhanVien_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
+
     }
 }
