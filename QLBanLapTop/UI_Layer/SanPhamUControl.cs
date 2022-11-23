@@ -123,6 +123,7 @@ namespace QLBanLapTop
             cbxLocTenHang.ResetText();
             ResetText();
             LoadData();
+            groupBox1.Enabled = false;
         }
 
         private void btnTim_Click(object sender, EventArgs e)
