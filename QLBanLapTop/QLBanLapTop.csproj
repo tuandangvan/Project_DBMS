@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,41 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBPlayer\Connection.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoHanh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoHanh.Designer.cs">
-      <DependentUpon>frmBaoHanh.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmManager.Designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmHangHoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHangHoa.Designer.cs">
-      <DependentUpon>frmHangHoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmKhachHang.Designer.cs">
-      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -89,47 +60,11 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMuaHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMuaHang.Designer.cs">
-      <DependentUpon>frmMuaHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNhanVien.Designer.cs">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNhapHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNhapHang.Designer.cs">
-      <DependentUpon>frmNhapHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNhaSanXuat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNhaSanXuat.Designer.cs">
-      <DependentUpon>frmNhaSanXuat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTaiKhoan.Designer.cs">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThanhToan.Designer.cs">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLichSuMuaHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLichSuMuaHang.Designer.cs">
-      <DependentUpon>frmLichSuMuaHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,47 +122,20 @@
     <Compile Include="UI_Layer\TaiKhoanUControl.Designer.cs">
       <DependentUpon>TaiKhoanUControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoHanh.resx">
-      <DependentUpon>frmBaoHanh.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="UI_Layer\ThongKeUControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI_Layer\ThongKeUControl.Designer.cs">
+      <DependentUpon>ThongKeUControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHangHoa.resx">
-      <DependentUpon>frmHangHoa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmKhachHang.resx">
-      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMuaHang.resx">
-      <DependentUpon>frmMuaHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNhanVien.resx">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNhapHang.resx">
-      <DependentUpon>frmNhapHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNhaSanXuat.resx">
-      <DependentUpon>frmNhaSanXuat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTaiKhoan.resx">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmThanhToan.resx">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLichSuMuaHang.resx">
-      <DependentUpon>frmLichSuMuaHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -264,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_Layer\TaiKhoanUControl.resx">
       <DependentUpon>TaiKhoanUControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_Layer\ThongKeUControl.resx">
+      <DependentUpon>ThongKeUControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

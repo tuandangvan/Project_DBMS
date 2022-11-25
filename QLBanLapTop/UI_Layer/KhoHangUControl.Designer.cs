@@ -42,14 +42,13 @@ namespace QLBanLapTop
             this.dtpChonNgay = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtNgayNhap = new System.Windows.Forms.TextBox();
+            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.txtMaSanPham = new System.Windows.Forms.TextBox();
             this.txtMaMay = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.lblHienNgay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhapHang)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -163,7 +162,7 @@ namespace QLBanLapTop
             // 
             this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(786, 224);
+            this.btnTimKiem.Location = new System.Drawing.Point(786, 241);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(99, 33);
@@ -175,18 +174,18 @@ namespace QLBanLapTop
             // dtpChonNgay
             // 
             this.dtpChonNgay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpChonNgay.Location = new System.Drawing.Point(580, 225);
+            this.dtpChonNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpChonNgay.Location = new System.Drawing.Point(580, 242);
             this.dtpChonNgay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpChonNgay.Name = "dtpChonNgay";
             this.dtpChonNgay.Size = new System.Drawing.Size(200, 30);
             this.dtpChonNgay.TabIndex = 3;
-            this.dtpChonNgay.ValueChanged += new System.EventHandler(this.dtpChonNgay_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(479, 230);
+            this.label4.Location = new System.Drawing.Point(479, 247);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 22);
             this.label4.TabIndex = 0;
@@ -195,7 +194,7 @@ namespace QLBanLapTop
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.txtNgayNhap);
+            this.panel1.Controls.Add(this.dtpNgayNhap);
             this.panel1.Controls.Add(this.txtMaSanPham);
             this.panel1.Controls.Add(this.txtMaMay);
             this.panel1.Controls.Add(this.label3);
@@ -209,13 +208,15 @@ namespace QLBanLapTop
             this.panel1.Size = new System.Drawing.Size(543, 130);
             this.panel1.TabIndex = 19;
             // 
-            // txtNgayNhap
+            // dtpNgayNhap
             // 
-            this.txtNgayNhap.Location = new System.Drawing.Point(176, 90);
-            this.txtNgayNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNgayNhap.Name = "txtNgayNhap";
-            this.txtNgayNhap.Size = new System.Drawing.Size(233, 30);
-            this.txtNgayNhap.TabIndex = 5;
+            this.dtpNgayNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayNhap.Location = new System.Drawing.Point(176, 94);
+            this.dtpNgayNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpNgayNhap.Name = "dtpNgayNhap";
+            this.dtpNgayNhap.Size = new System.Drawing.Size(137, 30);
+            this.dtpNgayNhap.TabIndex = 6;
             // 
             // txtMaSanPham
             // 
@@ -274,20 +275,10 @@ namespace QLBanLapTop
             this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // lblHienNgay
-            // 
-            this.lblHienNgay.AutoSize = true;
-            this.lblHienNgay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHienNgay.Location = new System.Drawing.Point(576, 258);
-            this.lblHienNgay.Name = "lblHienNgay";
-            this.lblHienNgay.Size = new System.Drawing.Size(0, 22);
-            this.lblHienNgay.TabIndex = 4;
-            // 
             // KhoHangUControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblHienNgay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnHuy);
@@ -322,7 +313,6 @@ namespace QLBanLapTop
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtNgayNhap;
         private System.Windows.Forms.TextBox txtMaSanPham;
         private System.Windows.Forms.TextBox txtMaMay;
         private System.Windows.Forms.Label label3;
@@ -330,9 +320,9 @@ namespace QLBanLapTop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.DateTimePicker dtpChonNgay;
-        private System.Windows.Forms.Label lblHienNgay;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaMay;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhap;
     }
 }

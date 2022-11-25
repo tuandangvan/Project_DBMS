@@ -28,7 +28,8 @@ namespace QLBanLapTop
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
@@ -120,8 +121,8 @@ namespace QLBanLapTop
             // 
             // dgvKhachHang
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 7.8F);
-            this.dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 7.8F);
+            this.dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKhachHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -129,6 +130,14 @@ namespace QLBanLapTop
             this.TenKH,
             this.DiaChi,
             this.LoaiKH});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvKhachHang.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvKhachHang.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvKhachHang.Location = new System.Drawing.Point(559, 85);
@@ -322,7 +331,7 @@ namespace QLBanLapTop
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Cyan;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSDT);
@@ -357,6 +366,7 @@ namespace QLBanLapTop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.Kha);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);

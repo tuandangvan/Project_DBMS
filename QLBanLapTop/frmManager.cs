@@ -52,27 +52,17 @@ namespace QLBanLapTop
             timer.Start();
             lblNgayGio.Text = DateTime.Now.ToLongTimeString();
 
-            if (frmTaiKhoan.Permission())
-            {
-                btnSanPham.Enabled = true;
-                btnNhanVien.Enabled = true;
-                btnLichSuMuaHang.Enabled = true;
-                btnKhachHang.Enabled = true;
-                btnMuaHang.Enabled = true;
-                btnTaiKhoan.Enabled = true;
-                btnKhoHang.Enabled = true;
-
-            }
-            else
+            if (!TaiKhoanUControl.Permission())
             {
                 btnSanPham.Visible = false;
-                btnNhanVien.Enabled = true;
-                btnLichSuMuaHang.Enabled = true;
-                btnKhachHang.Enabled = true;
-                btnMuaHang.Enabled = true;
+                btnNhanVien.Visible = false;
                 btnTaiKhoan.Visible = false;
                 btnKhoHang.Visible = false;
+                btnHangSX.Visible = false;
+
+
             }
+       
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
@@ -123,11 +113,14 @@ namespace QLBanLapTop
             panel.Controls.Add(MH);
         }
 
-        private void frmManager_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnThongKe_Click(object sender, EventArgs e)
         {
-            
-               
+            panel.BackColor = btnThongKe.BackColor;
+            ThongKeUControl TK = new ThongKeUControl();
+            panel.Controls.Clear();
+            panel.Controls.Add(TK);
         }
+
 
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -147,5 +140,7 @@ namespace QLBanLapTop
 
             }
         }
+
+        
     }
 }

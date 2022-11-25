@@ -122,14 +122,14 @@ namespace QLBanLapTop.UI_Layer
                                  MessageBoxButtons.YesNo);
                 if (check == DialogResult.No)
                     return;
-                if (db.Check(txtMNV.Text, "NhanVien", "MaNV") == true)
-                {
                     strSQL = "proc_updateNhanVien";
 
                     parameters = new List<SqlParameter>();
 
-
                     parameter = new SqlParameter("@MaNV", manv);
+                    parameters.Add(parameter);
+
+                    parameter = new SqlParameter("@TenNV", txtHoTen.Text);
                     parameters.Add(parameter);
 
                     parameter = new SqlParameter("@MaPB", cbbPB.SelectedValue);
@@ -154,11 +154,7 @@ namespace QLBanLapTop.UI_Layer
                     parameters.Add(parameter);
 
                     db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    MessageBox.Show("Sửa thành công");
                     LoadData();
-                }
-                else
-                    MessageBox.Show("Hãng sản xuất không tồn tại");
             }
             else
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");

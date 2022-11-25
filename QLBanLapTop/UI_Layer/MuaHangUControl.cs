@@ -56,7 +56,7 @@ namespace QLBanLapTop
                 row = dgvDanhSachSP.Rows[e.RowIndex];
                 txtMaSP.Text = Convert.ToString(row.Cells[0].Value);
                 txtTenSP.Text = Convert.ToString(row.Cells[2].Value);
-                txtGiaBan.Text = Convert.ToString(row.Cells[4].Value);
+                txtGiaBan.Text = Convert.ToString(double.Parse(row.Cells[4].Value.ToString()));
                 BindCbBoxMaMay(txtMaSP.Text);
             }
         }

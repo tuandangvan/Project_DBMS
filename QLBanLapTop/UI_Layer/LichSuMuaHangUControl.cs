@@ -20,8 +20,6 @@ namespace QLBanLapTop
             InitializeComponent();
         }
 
-        bool NhapHang;
-
         SqlDataAdapter daLichSuMuaHang;
         DataTable dtLichSuMuaHang;
         private Connection db = new Connection();
@@ -74,21 +72,27 @@ namespace QLBanLapTop
 
         private void btnTopSaler_Click(object sender, EventArgs e)
         {
-            this.panel2.Enabled = true;
-            SqlCommand cmd = new SqlCommand("SELECT * from dbo.fnc_TopSaler()", db.conn);
-
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            try
             {
-                this.txtTenNV.Text = dt.Rows[0][0].ToString();
-                this.txtLuong.Text = dt.Rows[0][1].ToString();
-                this.txtChucVu.Text = dt.Rows[0][2].ToString();
-                this.txtSDT.Text = dt.Rows[0][3].ToString();
-                this.txtKinhNghiem.Text = dt.Rows[0][4].ToString();
-                this.txtCalam.Text = dt.Rows[0][5].ToString();
+                this.panel2.Enabled = true;
+                SqlCommand cmd = new SqlCommand("SELECT * from dbo.fnc_TopSaler()", db.conn);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    this.txtTenNV.Text = dt.Rows[0][0].ToString();
+                    this.txtLuong.Text = dt.Rows[0][1].ToString();
+                    this.txtChucVu.Text = dt.Rows[0][2].ToString();
+                    this.txtSDT.Text = dt.Rows[0][3].ToString();
+                    this.txtKinhNghiem.Text = dt.Rows[0][4].ToString();
+                    this.txtCalam.Text = dt.Rows[0][5].ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

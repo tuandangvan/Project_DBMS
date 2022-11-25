@@ -56,9 +56,8 @@ namespace QLBanLapTop
                             txtGhiChu.ResetText();
                             txtMaMay.ResetText();
                             lblNgayMuaHang.ResetText();
-
+                            LoadData();
                         }
-                        LoadData();
                     }
                 }
                 catch (Exception ex)
@@ -111,12 +110,17 @@ namespace QLBanLapTop
                     parameters.Add(new SqlParameter("@GhiChu", txtGhiChu.Text));
                     parameters.Add(new SqlParameter("@MaMay", txtMaMay.Text));
 
-                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                    LoadData();
+                    if(db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters))
+                    {
+                        MessageBox.Show("Sửa bảo hành thành công!");
+                        LoadData();
+                    }    
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -169,14 +173,13 @@ namespace QLBanLapTop
                 daLichSuBaoHanh.Fill(dtLichSuBaoHanh);
                 dgvBaoHanh.DataSource = dtLichSuBaoHanh;
 
-
                 db.conn.Close();
                 lblNgayBaoHanh.Text = DateTime.Today.ToString("MM/dd/yyyy");
 
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

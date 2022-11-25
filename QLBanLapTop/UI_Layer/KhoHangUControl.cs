@@ -40,7 +40,6 @@ namespace QLBanLapTop
 
                 dgvNhapHang.DataSource = dtKhoHang;
                 db.conn.Close();
-                lblHienNgay.Text = dtpChonNgay.Value.ToString();
             }
             catch
             {
@@ -56,15 +55,10 @@ namespace QLBanLapTop
             NhapHang = true;
             this.txtMaMay.ResetText();
             this.txtMaSanPham.ResetText();
-            this.txtNgayNhap.ResetText();
-
-
             this.btnLuu.Enabled = true;
             this.panel1.Enabled = true;
-
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
-
             dgvNhapHang.Enabled = false;
             this.btnHuy.Enabled = true;
             this.txtMaMay.Focus();
@@ -74,19 +68,13 @@ namespace QLBanLapTop
         {
             NhapHang = false;
             this.panel1.Enabled = true;
-            int r = dgvNhapHang.CurrentCell.RowIndex;
-
-            this.txtMaMay.Text = dgvNhapHang.Rows[r].Cells[0].Value.ToString();
-            this.txtMaSanPham.Text = dgvNhapHang.Rows[r].Cells[1].Value.ToString();
-            this.txtNgayNhap.Text = dgvNhapHang.Rows[r].Cells[2].Value.ToString();
-
-
             this.btnLuu.Enabled = true;
             this.panel1.Enabled = true;
 
             this.btnNhapHang.Enabled = false;
             this.btnSua.Enabled = false;
             this.btnHuy.Enabled = true;
+            txtMaMay.Enabled = false;
 
             this.txtMaMay.Focus();
         }
@@ -107,7 +95,7 @@ namespace QLBanLapTop
                     parameter = new SqlParameter("@MaSP", txtMaSanPham.Text);
                     parameters.Add(parameter);
 
-                    parameter = new SqlParameter("@NgayNhap", txtNgayNhap.Text);
+                    parameter = new SqlParameter("@NgayNhap", dtpNgayNhap.Text);
                     parameters.Add(parameter);
 
                     if (db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters))
@@ -118,28 +106,35 @@ namespace QLBanLapTop
                     else
                         return;
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
             {
-                string strSQL = "update_NhapHang";
-                parameters = new List<SqlParameter>();
+                try
+                {
+                    string strSQL = "update_NhapHang";
+                    parameters = new List<SqlParameter>();
 
-                parameter = new SqlParameter("@MaMay", txtMaMay.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@MaMay", txtMaMay.Text);
+                    parameters.Add(parameter);
 
-                parameter = new SqlParameter("@MaSP", txtMaSanPham.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@MaSP", txtMaSanPham.Text);
+                    parameters.Add(parameter);
 
-                parameter = new SqlParameter("@NgayNhap", txtNgayNhap.Text);
-                parameters.Add(parameter);
+                    parameter = new SqlParameter("@NgayNhap", dtpNgayNhap.Text);
+                    parameters.Add(parameter);
 
-                db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
-                LoadData();
-                MessageBox.Show("Cập Nhật thành công", "Thông báo", MessageBoxButtons.OK);
+                    db.ExecuteProcedure(strSQL, CommandType.StoredProcedure, parameters);
+                    LoadData();
+                    MessageBox.Show("Cập Nhật thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             ResetText();
             db.conn.Close();
@@ -152,16 +147,20 @@ namespace QLBanLapTop
 
         private void dgvNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int r = dgvNhapHang.CurrentCell.RowIndex;
-            if (r >= 0)
+            try
             {
-                this.txtMaMay.Text =
-                dgvNhapHang.Rows[r].Cells[0].Value.ToString();
-                this.txtMaSanPham.Text =
-                dgvNhapHang.Rows[r].Cells[1].Value.ToString();
-                this.txtNgayNhap.Text =
-                dgvNhapHang.Rows[r].Cells[2].Value.ToString();
+                int r = dgvNhapHang.CurrentCell.RowIndex;
+                if (r >= 0)
+                {
+                    this.txtMaMay.Text =
+                    dgvNhapHang.Rows[r].Cells[0].Value.ToString();
+                    this.txtMaSanPham.Text =
+                    dgvNhapHang.Rows[r].Cells[1].Value.ToString();
+                    this.dtpNgayNhap.Text = dgvNhapHang.Rows[r].Cells[2].Value.ToString();
+                }
             }
+            catch
+            { }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -197,14 +196,9 @@ namespace QLBanLapTop
             this.btnHuy.Enabled = false;
             this.dgvNhapHang.Enabled = true;
             this.btnLuu.Enabled = false;
+            txtMaMay.Enabled = true;
             ResetText();
         }
-
-        private void dtpChonNgay_ValueChanged(object sender, EventArgs e)
-        {
-            lblHienNgay.Text = dtpChonNgay.Value.ToString();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             LoadData();
